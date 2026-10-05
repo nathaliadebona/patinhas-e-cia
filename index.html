@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Patinhas & Cia</title>
+    <title>Patinhas &amp; Cia</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,23 +14,87 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header>
+        <h1><i class="fa-solid fa-paw"></i> Patinhas &amp; Cia</h1>
+        <p>Cuidado e carinho pro seu melhor amigo</p>
+    </header>
+
     <main>
-        <section>
-            <form action="">
-                <label for="nome-tutor">Nome do tutor</label>
-                <input type="text" id="nome-tutor" name="nome-tutor">
+        <section id="introducao">
+            <h2>Bem-vindo à casinha do seu pet</h2>
+            <p>Aqui seu bichinho é tratado com calma, carinho e muita atenção. Cuidamos do banho, da tosa e da saúde dele como se fosse da nossa família.</p>
+        </section>
 
-                <label for="telefone">Telefone</label>
-                <input type="tel" id="telefone" name="telefone">
+        <section id="servicos">
+            <h2>Nossos serviços</h2>
+            <p>Escolha o cuidado ideal pro seu pet. Cada serviço é feito com todo o carinho do mundo.</p>
 
-                <label for="nome-pet">Nome do pet</label>
-                <input type="text" id="nome-pet" name="nome-pet">
+            <article id="banho-info">
+                <h3>Banho</h3>
 
-                <label for="especie">Espécie</label>
-                <input type="text" id="especie" name="especie">
+                <p>Água morninha, shampoo neutro e muito carinho. Seu pet volta cheirosinho e fofinho.</p>
 
-                
-            </form>
+                <span>Duração: 1h</span>
+
+                <span>Valor: R$ 50,00</span>
+
+                <button type="button">Selecionar</button>
+            </article>
+
+            <article id="tosa-info">
+                <h3>Tosa</h3>
+
+                <p>Um visual novo feito com calma e cuidado, do jeitinho que você escolher.</p>
+
+                <ul>
+                    <li>Tosa higiênica: Remove os pelos da barriga, virilha, da região genital e ao redor das almofadinhas das patas para evitar acúmulo de sujeira e bactérias.</li>
+                    <li>Tosa bebê: Deixa o pelo com comprimento uniforme (geralmente de 2 a 3 dedos) e formato arredondado, simulando a aparência de um filhote. É feita com máquina e acabamento em tesoura.</li>
+                    <li>Tosa na tesoura:  Indicada para cães com pelagem média ou longa, ou animais que têm medo ou alergia ao barulho e à vibração da lâmina de máquina. Proporciona um acabamento mais delicado.</li>
+                    <li>Tosa Verão: Remove grande parte do volume da pelagem para aliviar o calor e eliminar nós difíceis.</li>
+                </ul>
+
+                <span>Duração: 1h30</span>
+
+                <span>Valor: R$ 70,00</span>
+
+                <button type="button">Selecionar</button>
+            </article>
+
+            <article id="banho-e-tosa-info">
+                <h3>Banho e Tosa</h3>
+
+                <p>O pacote completo: banho cheiroso e tosa à sua escolha, pro seu pet sair renovado.</p>
+
+                <span>Duração: 2h</span>
+
+                <span>Valor: R$ 100,00</span>
+
+                <button type="button">Selecionar</button>
+            </article>
+
+            <article id="consulta-info">
+                <h3>Consulta Veterinária</h3>
+
+                <p>Um check-up com atenção e tranquilidade, pra cuidar da saúde do seu melhor amigo.</p>
+
+                <span>Duração: 30min</span>
+
+                <span>Valor: R$ 120,00</span>
+
+                <button type="button">Selecionar</button>
+            </article>
+
+            <article id="corte-unhas-info">
+                <h3>Corte de Unhas</h3>
+
+                <p>Unhas aparadas com delicadeza, pra seu pet andar com conforto e sem arranhões.</p>
+
+                <span>Duração: 15min</span>
+
+                <span>Valor: R$ 20,00</span>
+
+                <button type="button">Selecionar</button>
+            </article>
         </section>
     </main>
     <script src="scripts/servicos.js"></script>
