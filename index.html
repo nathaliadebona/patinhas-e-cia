@@ -96,6 +96,55 @@
                 <button type="button">Selecionar</button>
             </article>
         </section>
+
+        <section id="agendamento">
+            <h2>Agende um horário</h2>
+            <p>Preencha os dados abaixo e reserve o momento de cuidado do seu pet.</p>
+
+            <form action="">
+                <label for="nome">Seu nome</label>
+                <input type="text" id="nome" name="nome" required>
+
+                <label for="telefone">Seu telefone</label>
+                <input type="tel" id="telefone" name="telefone" required>
+
+                <label for="pet-nome">Nome do pet</label>
+                <input type="text" id="pet-nome" name="pet-nome" required>
+
+                <label for="especie">Espécie</label>
+                <select name="especie" id="especie" required>
+                    <option value="">Selecione</option>
+                    <option value="cachorro">Cachorro</option>
+                    <option value="gato">Gato</option>
+                    <option value="outro">Outro</option>
+                </select>
+
+                <label for="servico">Serviço</label>
+                <select name="servico" id="servico" required>
+                    <option value="">Selecione</option>
+                </select>
+
+                <div id="opcoes-tosa" hidden>
+                    <label for="tipo-tosa">Tipo de tosa</label>
+                    <select name="tipo-tosa" id="tipo-tosa">
+                        <option value="">Selecione</option>
+                    </select>
+                </div>
+
+                <label for="data">Data</label>
+                <input type="date" id="data" name="data" required>
+
+                <label for="horario">Horário</label>
+                <select name="horario" id="horario" required>
+                    <option value="">Selecione</option>
+                </select>
+
+                <label for="informacao-adicional">Informações adicionais</label>
+                <textarea name="informacao-adicional" id="informacao-adicional" placeholder="Alguma observação? Ex.: seu pet é alérgico, medroso..."></textarea>
+
+                <button type="submit">Agendar</button>
+            </form>
+        </section>
     </main>
     <script src="scripts/servicos.js"></script>
 </body>
