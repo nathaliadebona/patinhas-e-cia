@@ -1,0 +1,12 @@
+:root {
+    --cor-fundo: #FFF6EC;
+    --cor-cards: #FFE5D4;
+    --cor-destaque: #E8845C;
+    --cor-destaque-azul: #CDE8F7;
+    --cor-destaque-rosa: #FFD6E0;
+    --cor-texto: #7A3E22;
+    --cor-texto-secundario: #A0684A;
+
+    --fonte-titulo: 'Fredoka', sans-serif;
+    --fonte-corpo: 'Nunito', sans-serif;
+}
