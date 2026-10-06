@@ -239,6 +239,20 @@ footer li span {
     font-weight: 700;
 }
 
+@keyframes balancar {
+    0%, 100% {
+        rotate: 0deg;
+    }
+
+    25% {
+        rotate: -4deg;
+    }
+
+    75% {
+        rotate: 4deg;
+    }
+}
+
 @media (min-width: 48rem) {
     #servicos-cards {
         display: grid;
@@ -265,7 +279,10 @@ footer li span {
         display: block;
         width: 8rem;
         transform: rotate(15deg);
-}
+        animation: balancar 3s ease-in-out infinite;
+    }
+
+    
 }
 
 @media (hover: hover) {
