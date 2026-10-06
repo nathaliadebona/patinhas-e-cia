@@ -281,8 +281,6 @@ footer li span {
         transform: rotate(15deg);
         animation: balancar 3s ease-in-out infinite;
     }
-
-    
 }
 
 @media (hover: hover) {
@@ -290,6 +288,13 @@ footer li span {
     #agendamento button:hover {
         color: var(--cor-fundo);
         background-color: var(--cor-texto);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .divisoria i,
+    .sticker-cachorro-gato {
+        animation: none;
     }
 }
 
