@@ -187,6 +187,28 @@ textarea {
     width: 100%;
 }
 
+footer {
+    padding: 2rem;
+    text-align: center;
+    border-radius: 1rem 1rem 0 0;
+    background-color: var(--cor-cards);
+}
+
+footer strong {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+footer li {
+    margin-bottom: 0.5rem;
+    list-style: none;
+}
+
+footer li span {
+    font-weight: 700;
+}
+
 @media (min-width: 48rem) {
     #servicos-cards {
         display: grid;
