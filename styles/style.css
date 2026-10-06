@@ -102,6 +102,14 @@ section {
     background-color: var(--cor-cards);
 }
 
+#servicos-cards article:nth-child(odd) {
+    background-color: var(--cor-destaque-azul);
+}
+
+#servicos-cards article:nth-child(even) {
+    background-color: var(--cor-destaque-rosa);
+}
+
 #servicos-cards h3 {
     font-size: 1.3rem;
 }
@@ -240,6 +248,14 @@ footer li span {
         width: 8rem;
         transform: rotate(15deg);
 }
+}
+
+@media (hover: hover) {
+    #servicos-cards button:hover,
+    #agendamento button:hover {
+        color: var(--cor-fundo);
+        background-color: var(--cor-texto);
+    }
 }
 
 
