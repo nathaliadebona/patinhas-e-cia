@@ -52,8 +52,26 @@ main {
     color: var(--cor-destaque);
 }
 
+@keyframes pular {
+    0%, 100% {
+        translate: 0 0;
+    }
+
+    50% {
+        translate: 0 -0.4rem;
+    }
+}
+
+.divisoria i {
+    animation: pular 1.5s ease-in-out infinite;
+}
+
 .divisoria i:nth-child(1) {
     transform: rotate(-15deg);
+}
+
+.divisoria i:nth-child(2) {
+    animation-delay: 0.2s;
 }
 
 .divisoria i:nth-child(3) {
