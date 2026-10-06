@@ -66,16 +66,19 @@ section {
 }
 
 #introducao,
-#servicos {
+#servicos,
+#agendamento {
     text-align: center;
 }
 
 #introducao h2,
-#servicos h2 {
+#servicos h2,
+#agendamento h2 {
     margin-bottom: 1rem;
 }
 
-#introducao p {
+#introducao p,
+#agendamento p {
     margin-bottom: 2rem;
 }
 
@@ -124,6 +127,11 @@ section {
     transition: background-color 0.3s ease-in, color 0.3s ease-in;
 }
 
+#servicos-cards button:focus-visible {
+    outline: 0.125rem solid var(--cor-texto);
+    outline-offset: 0.1rem;
+}
+
 #tosa-info li {
     list-style: none;
     margin-bottom: 1rem;
@@ -133,5 +141,48 @@ section {
     font-weight: 700;
     color: var(--cor-texto);
 }
+
+#agendamento form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 30rem;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: start;
+    border-radius: 1rem;
+    background-color: var(--cor-cards);
+}
+
+#agendamento .campo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+#agendamento .campo[hidden] {
+    display: none;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 0.6rem;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    border: 0.0625rem solid var(--cor-destaque);
+    border-radius: 2rem;
+}
+
+textarea {
+    border-radius: 1rem;
+    resize: vertical;
+}
+
+
+
+
 
 
