@@ -144,6 +144,10 @@ section {
     color: var(--cor-texto);
 }
 
+.sticker-cachorro-gato {
+    display: none;
+}
+
 #agendamento form {
     display: flex;
     flex-direction: column;
@@ -223,6 +227,19 @@ footer li span {
     #banho-e-tosa-info {
         justify-content: center;
     }
+
+    #agendamento {
+        position: relative;
+    }
+
+    .sticker-cachorro-gato {
+        position: absolute;
+        top: 5rem;
+        right: 5rem;
+        display: block;
+        width: 8rem;
+        transform: rotate(15deg);
+}
 }
 
 
