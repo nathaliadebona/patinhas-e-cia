@@ -114,7 +114,8 @@ section {
     font-size: 0.9rem;
 }
 
-#servicos-cards button {
+#servicos-cards button,
+#agendamento button {
     align-self: flex-start;
     padding: 0.6rem 1rem;
     font-family: var(--fonte-corpo);
@@ -127,7 +128,8 @@ section {
     transition: background-color 0.3s ease-in, color 0.3s ease-in;
 }
 
-#servicos-cards button:focus-visible {
+#servicos-cards button:focus-visible,
+#agendamento button:focus-visible {
     outline: 0.125rem solid var(--cor-texto);
     outline-offset: 0.1rem;
 }
@@ -180,6 +182,28 @@ textarea {
     border-radius: 1rem;
     resize: vertical;
 }
+
+#agendamento button {
+    width: 100%;
+}
+
+@media (min-width: 48rem) {
+    #servicos-cards {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    #tosa-info {
+        grid-row: span 2;
+    }
+
+    #banho-info,
+    #banho-e-tosa-info {
+        justify-content: center;
+    }
+}
+
+
 
 
 
