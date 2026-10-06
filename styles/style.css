@@ -118,6 +118,7 @@ section {
     text-align: left;
     border-radius: 1rem;
     background-color: var(--cor-cards);
+    box-shadow: 0.25rem 0.25rem 0 var(--cor-texto);
 }
 
 #servicos-cards article:nth-child(odd) {
@@ -184,6 +185,7 @@ section {
     text-align: start;
     border-radius: 1rem;
     background-color: var(--cor-cards);
+    box-shadow: 0.25rem 0.25rem 0 var(--cor-texto);
 }
 
 #agendamento .campo {
