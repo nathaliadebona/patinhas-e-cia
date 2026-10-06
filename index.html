@@ -8,16 +8,15 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
     <header>
         <h1><i class="fa-solid fa-paw"></i> Patinhas &amp; Cia</h1>
         <p>Cuidado e carinho pro seu melhor amigo</p>
-        <img src="assets/gato-cachorro-sticker.png" alt="">
     </header>
 
     <main>
@@ -26,79 +25,72 @@
             <p>Aqui seu bichinho é tratado com calma, carinho e muita atenção. Cuidamos do banho, da tosa e da saúde dele como se fosse da nossa família.</p>
         </section>
 
+        <div class="divisoria" aria-hidden="true">
+            <i class="fa-solid fa-paw"></i>
+            <i class="fa-solid fa-paw"></i>
+            <i class="fa-solid fa-paw"></i>
+        </div>
+
         <section id="servicos">
-            <h2>Nossos serviços</h2>
-            <p>Escolha o cuidado ideal pro seu pet. Cada serviço é feito com todo o carinho do mundo.</p>
+            <div id="servicos-intro">
+                <h2>Nossos serviços</h2>
+                <p>Escolha o cuidado ideal pro seu pet. Cada serviço é feito com todo o carinho do mundo.</p>
+            </div>
 
-            <article id="banho-info">
-                <h3>Banho</h3>
+            <div id="servicos-cards">
+                <article id="banho-info">
+                    <h3>Banho <i class="fa-solid fa-shower"></i></h3>
+                    <p>Água morninha, shampoo neutro e muito carinho. Seu pet volta cheirosinho e fofinho.</p>
+                    <span><strong>Duração:</strong> 1h</span>
+                    <span><strong>Valor:</strong> R$ 50,00</span>
+                    <button type="button">Selecionar</button>
+                </article>
 
-                <p>Água morninha, shampoo neutro e muito carinho. Seu pet volta cheirosinho e fofinho.</p>
+                <article id="tosa-info">
+                    <h3>Tosa <i class="fa-solid fa-scissors"></i></h3>
+                    <p>Um visual novo feito com calma e cuidado, do jeitinho que você escolher.</p>
+                    <ul>
+                        <li><span>Tosa higiênica:</span> Remove os pelos da barriga, virilha, da região genital e ao redor das almofadinhas das patas para evitar acúmulo de sujeira e bactérias.</li>
+                        <li><span>Tosa bebê:</span> Deixa o pelo com comprimento uniforme (geralmente de 2 a 3 dedos) e formato arredondado, simulando a aparência de um filhote. É feita com máquina e acabamento em tesoura.</li>
+                        <li><span>Tosa na tesoura:</span> Indicada para cães com pelagem média ou longa, ou animais que têm medo ou alergia ao barulho e à vibração da lâmina de máquina. Proporciona um acabamento mais delicado.</li>
+                        <li><span>Tosa Verão:</span> Remove grande parte do volume da pelagem para aliviar o calor e eliminar nós difíceis.</li>
+                    </ul>
+                    <span><strong>Duração:</strong> 1h30</span>
+                    <span><strong>Valor:</strong> R$ 70,00</span>
+                    <button type="button">Selecionar</button>
+                </article>
 
-                <span>Duração: 1h</span>
+                <article id="banho-e-tosa-info">
+                    <h3>Banho e Tosa <i class="fa-solid fa-shower"></i>  <i class="fa-solid fa-scissors"></i></h3>
+                    <p>O pacote completo: banho cheiroso e tosa à sua escolha, pro seu pet sair renovado.</p>
+                    <span><strong>Duração:</strong> 2h</span>
+                    <span><strong>Valor:</strong> R$ 100,00</span>
+                    <button type="button">Selecionar</button>
+                </article>
 
-                <span>Valor: R$ 50,00</span>
+                <article id="consulta-info">
+                    <h3>Consulta Veterinária <i class="fa-solid fa-user-doctor"></i></h3>
+                    <p>Um check-up com atenção e tranquilidade, pra cuidar da saúde do seu melhor amigo.</p>
+                    <span><strong>Duração:</strong> 30min</span>
+                    <span><strong>Valor:</strong> R$ 120,00</span>
+                    <button type="button">Selecionar</button>
+                </article>
 
-                <button type="button">Selecionar</button>
-            </article>
-
-            <article id="tosa-info">
-                <h3>Tosa</h3>
-
-                <p>Um visual novo feito com calma e cuidado, do jeitinho que você escolher.</p>
-
-                <ul>
-                    <li>Tosa higiênica: Remove os pelos da barriga, virilha, da região genital e ao redor das almofadinhas das patas para evitar acúmulo de sujeira e bactérias.</li>
-                    <li>Tosa bebê: Deixa o pelo com comprimento uniforme (geralmente de 2 a 3 dedos) e formato arredondado, simulando a aparência de um filhote. É feita com máquina e acabamento em tesoura.</li>
-                    <li>Tosa na tesoura:  Indicada para cães com pelagem média ou longa, ou animais que têm medo ou alergia ao barulho e à vibração da lâmina de máquina. Proporciona um acabamento mais delicado.</li>
-                    <li>Tosa Verão: Remove grande parte do volume da pelagem para aliviar o calor e eliminar nós difíceis.</li>
-                </ul>
-
-                <span>Duração: 1h30</span>
-
-                <span>Valor: R$ 70,00</span>
-
-                <button type="button">Selecionar</button>
-            </article>
-
-            <article id="banho-e-tosa-info">
-                <h3>Banho e Tosa</h3>
-
-                <p>O pacote completo: banho cheiroso e tosa à sua escolha, pro seu pet sair renovado.</p>
-
-                <span>Duração: 2h</span>
-
-                <span>Valor: R$ 100,00</span>
-
-                <button type="button">Selecionar</button>
-            </article>
-
-            <article id="consulta-info">
-                <h3>Consulta Veterinária</h3>
-
-                <p>Um check-up com atenção e tranquilidade, pra cuidar da saúde do seu melhor amigo.</p>
-
-                <span>Duração: 30min</span>
-
-                <span>Valor: R$ 120,00</span>
-
-                <button type="button">Selecionar</button>
-            </article>
-
-            <article id="corte-unhas-info">
-                <h3>Corte de Unhas</h3>
-
-                <p>Unhas aparadas com delicadeza, pra seu pet andar com conforto e sem arranhões.</p>
-
-                <span>Duração: 15min</span>
-
-                <span>Valor: R$ 20,00</span>
-
-                <button type="button">Selecionar</button>
-            </article>
-
-            <img src="assets/biscoitos-sticker.png" alt="">
+                <article id="corte-unhas-info">
+                    <h3>Corte de Unhas <i class="fa-solid fa-paw"></i></h3>
+                    <p>Unhas aparadas com delicadeza, pra seu pet andar com conforto e sem arranhões.</p>
+                    <span><strong>Duração:</strong> 15min</span>
+                    <span><strong>Valor:</strong> R$ 20,00</span>
+                    <button type="button">Selecionar</button>
+                </article>
+            </div>
         </section>
+
+        <div class="divisoria" aria-hidden="true">
+            <i class="fa-solid fa-paw"></i>
+            <i class="fa-solid fa-paw"></i>
+            <i class="fa-solid fa-paw"></i>
+        </div>
 
         <section id="agendamento">
             <h2>Agende um horário</h2>
@@ -146,8 +138,6 @@
                 <textarea name="informacao-adicional" id="informacao-adicional" placeholder="Alguma observação? Ex.: seu pet é alérgico, medroso..."></textarea>
 
                 <button type="submit">Agendar</button>
-
-                <img src="assets/patinhas-sticker.png" alt="">
             </form>
         </section>
     </main>

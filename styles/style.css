@@ -1,0 +1,137 @@
+:root {
+    --cor-fundo: #FFF6EC;
+    --cor-cards: #FFE5D4;
+    --cor-destaque: #E8845C;
+    --cor-destaque-azul: #CDE8F7;
+    --cor-destaque-rosa: #FFD6E0;
+    --cor-texto: #7A3E22;
+    --cor-texto-secundario: #A0684A;
+
+    --fonte-titulo: 'Fredoka', sans-serif;
+    --fonte-corpo: 'Nunito', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--fonte-corpo);
+    color: var(--cor-texto);
+    background-color: var(--cor-fundo);
+}
+
+h1, h2, h3 {
+    font-family: var(--fonte-titulo);
+}
+
+header {
+    padding: 1.2rem;
+    text-align: center;
+    border-radius: 0 0 1.5rem 1.5rem; 
+    background-color: var(--cor-cards);
+}
+
+header p {
+    margin-top: 0.5rem;
+}
+
+main {
+    max-width: 60rem;
+    margin: 0 auto;
+    padding: 1.5rem;
+}
+
+.divisoria {
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+    justify-content: center;
+    color: var(--cor-destaque);
+}
+
+.divisoria i:nth-child(1) {
+    transform: rotate(-15deg);
+}
+
+.divisoria i:nth-child(3) {
+    transform: rotate(15deg);
+}
+
+section {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+#introducao,
+#servicos {
+    text-align: center;
+}
+
+#introducao h2,
+#servicos h2 {
+    margin-bottom: 1rem;
+}
+
+#introducao p {
+    margin-bottom: 2rem;
+}
+
+#servicos-intro {
+    margin-bottom: 1rem;
+}
+
+#servicos-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#servicos-cards article {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem;
+    text-align: left;
+    border-radius: 1rem;
+    background-color: var(--cor-cards);
+}
+
+#servicos-cards h3 {
+    font-size: 1.3rem;
+}
+
+#servicos-cards p {
+    color: var(--cor-texto-secundario);
+}
+
+#servicos-cards h3 i {
+    font-size: 0.9rem;
+}
+
+#servicos-cards button {
+    align-self: flex-start;
+    padding: 0.6rem 1rem;
+    font-family: var(--fonte-corpo);
+    font-size: 1rem;
+    color: var(--cor-texto);
+    border: none;
+    border-radius: 2rem;
+    background-color: var(--cor-destaque);
+    cursor: pointer;
+    transition: background-color 0.3s ease-in, color 0.3s ease-in;
+}
+
+#tosa-info li {
+    list-style: none;
+    margin-bottom: 1rem;
+}
+
+#tosa-info li span {
+    font-weight: 700;
+    color: var(--cor-texto);
+}
+
+
