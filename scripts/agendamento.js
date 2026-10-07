@@ -5,6 +5,10 @@ const selectTipoTosa = document.getElementById('tipo-tosa');
 const agendamentoSection = document.getElementById('agendamento');
 const selectHorario = document.getElementById('horario');
 const formAgendamento = document.getElementById('form-agendamento');
+const campoNome = document.getElementById('nome');
+const campoTelefone = document.getElementById('telefone');
+const campoPetNome = document.getElementById('pet-nome');
+const campoEspecie = document.getElementById('especie');
 const ABERTURA = 540;
 const FECHAMENTO = 1080;
 const INTERVALO = 30;
@@ -90,5 +94,11 @@ selectServico.addEventListener('change', atualizarHorarios);
 // Envio de formulário de agendamento //
 formAgendamento.addEventListener('submit', (evento) => {
     evento.preventDefault();
-    console.log('enviou')
+    
+    const nome = campoNome.value;
+    const telefone = campoTelefone.value;
+    const petNome = campoPetNome.value;
+    const especie = campoEspecie.value;
+
+    console.log(nome, telefone, petNome, especie)
 });
