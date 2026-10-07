@@ -129,6 +129,7 @@ formAgendamento.addEventListener('submit', (evento) => {
     const listaAgendamentos = JSON.parse(localStorage.getItem('agendamentos')) || [];
 
     listaAgendamentos.push(agendamento);
+    localStorage.setItem('agendamentos', JSON.stringify(listaAgendamentos));
 
     console.log(listaAgendamentos);
 });
