@@ -132,5 +132,6 @@ formAgendamento.addEventListener('submit', (evento) => {
     localStorage.setItem('agendamentos', JSON.stringify(listaAgendamentos));
     formAgendamento.reset();
 
-    console.log(listaAgendamentos);
+    atualizarTipoTosa();
+    atualizarHorarios();
 });
