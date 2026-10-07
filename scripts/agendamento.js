@@ -71,4 +71,14 @@ function preencherHorarios(duracao) {
     }
 }
 
-preencherHorarios(60);
+function atualizarHorarios() {
+    const servicoEscolhido = servicos.find((servico) => {
+        return servico.id === selectServico.value;
+    });
+
+    if (servicoEscolhido) {
+        preencherHorarios(servicoEscolhido.duracao);
+    }
+}
+
+selectServico.addEventListener('change', atualizarHorarios);
