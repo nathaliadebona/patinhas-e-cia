@@ -79,6 +79,8 @@ function atualizarHorarios() {
 
     if (servicoEscolhido) {
         preencherHorarios(servicoEscolhido.duracao);
+    } else {
+        selectHorario.innerHTML = '<option value="">Selecione</option>';
     }
 }
 
