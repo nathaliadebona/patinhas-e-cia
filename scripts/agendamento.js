@@ -17,6 +17,7 @@ const botoesSelecionar = document.querySelectorAll('#servicos-cards button');
 botoesSelecionar.forEach((botao) => {
     botao.addEventListener('click', () => {
         selectServico.value = botao.dataset.servico;
+        atualizarTipoTosa();
     });
 });
 
