@@ -107,6 +107,17 @@ formAgendamento.addEventListener('submit', (evento) => {
     const horario = selectHorario.value;
     const infoAdicional = campoInfoAdicional.value;
 
+    const agendamento = {
+        tutor: nome,
+        telefone: telefone,
+        pet: petNome,
+        especie: especie,
+        servico: servico,
+        tipoTosa: tipoTosa,
+        informacoes: infoAdicional,
+        pagamento: "pendente",
+        status: "agendado"
+    }
 
-    console.log(nome, telefone, petNome, especie, servico, tipoTosa, data, horario, infoAdicional)
+    console.log(agendamento);
 });
