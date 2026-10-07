@@ -4,6 +4,7 @@ const opcoesTosa = document.getElementById('opcoes-tosa');
 const selectTipoTosa = document.getElementById('tipo-tosa');
 const agendamentoSection = document.getElementById('agendamento');
 const selectHorario = document.getElementById('horario');
+const formAgendamento = document.getElementById('form-agendamento');
 const ABERTURA = 540;
 const FECHAMENTO = 1080;
 const INTERVALO = 30;
@@ -85,3 +86,9 @@ function atualizarHorarios() {
 }
 
 selectServico.addEventListener('change', atualizarHorarios);
+
+// Envio de formulário de agendamento //
+formAgendamento.addEventListener('submit', (evento) => {
+    evento.preventDefault();
+    console.log('enviou')
+});
