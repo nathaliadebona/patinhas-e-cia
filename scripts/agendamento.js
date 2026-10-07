@@ -112,6 +112,7 @@ formAgendamento.addEventListener('submit', (evento) => {
     });
 
     const agendamento = {
+        id: Date.now(),
         tutor: nome,
         telefone: telefone,
         pet: petNome,
