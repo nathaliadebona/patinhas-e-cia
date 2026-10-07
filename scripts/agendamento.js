@@ -54,6 +54,8 @@ selectServico.addEventListener('change', atualizarTipoTosa);
 
 // Horários //
 function preencherHorarios(duracao) {
+    selectHorario.innerHTML = '<option value="">Selecione</option>';
+
     for (let i = ABERTURA; i + duracao <= FECHAMENTO; i += INTERVALO) {
         const horas = Math.floor(i / 60);
         const minutos = i % 60;
@@ -69,4 +71,4 @@ function preencherHorarios(duracao) {
     }
 }
 
-preencherHorarios();
+preencherHorarios(60);
