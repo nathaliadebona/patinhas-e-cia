@@ -107,6 +107,10 @@ formAgendamento.addEventListener('submit', (evento) => {
     const horario = selectHorario.value;
     const infoAdicional = campoInfoAdicional.value;
 
+    const servicoEscolhido = servicos.find((item) => {
+        return item.id === servico;
+    });
+
     const agendamento = {
         tutor: nome,
         telefone: telefone,
@@ -116,9 +120,10 @@ formAgendamento.addEventListener('submit', (evento) => {
         tipoTosa: tipoTosa,
         diaHora: `${data}T${horario}`,
         informacoes: infoAdicional,
+        valor: servicoEscolhido.valor,
         pagamento: "pendente",
         status: "agendado"
-    }
+    };
 
     console.log(agendamento);
 });
