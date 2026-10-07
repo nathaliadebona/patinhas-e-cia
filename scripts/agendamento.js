@@ -137,4 +137,8 @@ formAgendamento.addEventListener('submit', (evento) => {
     atualizarHorarios();
 
     mensagemConfirmacao.textContent = 'Agendamento confirmado! Esperamos você e seu pet.';
+
+    setTimeout(() => {
+        mensagemConfirmacao.textContent = '';
+    }, 4000);
 });
