@@ -53,8 +53,8 @@ function atualizarTipoTosa() {
 selectServico.addEventListener('change', atualizarTipoTosa);
 
 // Horários //
-function preencherHorarios() {
-    for (let i = ABERTURA; i < FECHAMENTO; i += INTERVALO) {
+function preencherHorarios(duracao) {
+    for (let i = ABERTURA; i + duracao <= FECHAMENTO; i += INTERVALO) {
         const horas = Math.floor(i / 60);
         const minutos = i % 60;
         const horasTexto = String(horas).padStart(2, '0');
