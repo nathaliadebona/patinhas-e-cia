@@ -3,6 +3,9 @@ const selectServico = document.getElementById('servico');
 const opcoesTosa = document.getElementById('opcoes-tosa');
 const selectTipoTosa = document.getElementById('tipo-tosa');
 const agendamentoSection = document.getElementById('agendamento');
+const ABERTURA = 540;
+const FECHAMENTO = 1080;
+const INTERVALO = 30;
 
 servicos.forEach((servico) => {
     selectTipoTosa.innerHTML = '';
@@ -48,3 +51,12 @@ function atualizarTipoTosa() {
 
 selectServico.addEventListener('change', atualizarTipoTosa);
 
+// Horários //
+for (let i = ABERTURA; i < FECHAMENTO; i += INTERVALO) {
+    const horas = Math.floor(i / 60);
+    const minutos = i % 60;
+    const horasTexto = String(horas).padStart(2, '0');
+    const minutosTexto = String(minutos).padStart(2, '0');
+    const horario = `${horasTexto}:${minutosTexto}`;
+    console.log(horario)
+}
