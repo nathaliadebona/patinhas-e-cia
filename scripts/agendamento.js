@@ -23,6 +23,7 @@ botoesSelecionar.forEach((botao) => {
     botao.addEventListener('click', () => {
         selectServico.value = botao.dataset.servico;
         atualizarTipoTosa();
+        atualizarHorarios();
 
         agendamentoSection.scrollIntoView({ behavior: 'smooth'});
     });
