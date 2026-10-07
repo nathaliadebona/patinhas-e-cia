@@ -114,6 +114,7 @@ formAgendamento.addEventListener('submit', (evento) => {
         especie: especie,
         servico: servico,
         tipoTosa: tipoTosa,
+        diaHora: `${data}T${horario}`,
         informacoes: infoAdicional,
         pagamento: "pendente",
         status: "agendado"
