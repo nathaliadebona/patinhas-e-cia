@@ -126,5 +126,7 @@ formAgendamento.addEventListener('submit', (evento) => {
         status: "agendado"
     };
 
-    console.log(agendamento);
+    const listaAgendamentos = JSON.parse(localStorage.getItem('agendamentos')) || [];
+
+    console.log(listaAgendamentos);
 });
