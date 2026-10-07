@@ -16,3 +16,21 @@ botoesSelecionar.forEach((botao) => {
         selectServico.value = botao.dataset.servico;
     });
 });
+
+// Opções de tipo de tosa //
+const opcoesTosa = document.getElementById('opcoes-tosa');
+
+function atualizarTipoTosa() {
+    const servicoEscolhido = servicos.find((servico) => {
+        return servico.id === selectServico.value;
+    });
+
+    if (servicoEscolhido && servicoEscolhido.tipos) {
+        opcoesTosa.hidden = false;
+    } else {
+        opcoesTosa.hidden = true;
+    }
+}
+
+selectServico.addEventListener('change', atualizarTipoTosa);
+
