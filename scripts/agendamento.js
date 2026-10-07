@@ -54,8 +54,13 @@ function atualizarTipoTosa() {
             tipoOption.textContent = tipo.nome;
             selectTipoTosa.appendChild(tipoOption);
         });
+        
+        selectTipoTosa.required = true;
+
     } else {
         opcoesTosa.hidden = true;
+        selectTipoTosa.required = false;
+        selectTipoTosa.value = '';
     }
 }
 
