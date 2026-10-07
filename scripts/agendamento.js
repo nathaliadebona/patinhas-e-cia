@@ -2,6 +2,7 @@
 const selectServico = document.getElementById('servico');
 const opcoesTosa = document.getElementById('opcoes-tosa');
 const selectTipoTosa = document.getElementById('tipo-tosa');
+const agendamentoSection = document.getElementById('agendamento');
 
 servicos.forEach((servico) => {
     selectTipoTosa.innerHTML = '';
@@ -18,6 +19,8 @@ botoesSelecionar.forEach((botao) => {
     botao.addEventListener('click', () => {
         selectServico.value = botao.dataset.servico;
         atualizarTipoTosa();
+
+        agendamentoSection.scrollIntoView({ behavior: 'smooth'});
     });
 });
 
