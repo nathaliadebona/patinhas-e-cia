@@ -1,4 +1,3 @@
-// Opções de serviços //
 const selectServico = document.getElementById('servico');
 const opcoesTosa = document.getElementById('opcoes-tosa');
 const selectTipoTosa = document.getElementById('tipo-tosa');
@@ -11,10 +10,12 @@ const campoPetNome = document.getElementById('pet-nome');
 const campoEspecie = document.getElementById('especie');
 const campoData = document.getElementById('data');
 const campoInfoAdicional = document.getElementById('informacao-adicional');
+const mensagemConfirmacao = document.getElementById('mensagem-confirmacao');
 const ABERTURA = 540;
 const FECHAMENTO = 1080;
 const INTERVALO = 30;
 
+// Opções de serviços //
 servicos.forEach((servico) => {
     selectTipoTosa.innerHTML = '';
     const servicoOption = document.createElement('option');
@@ -134,4 +135,6 @@ formAgendamento.addEventListener('submit', (evento) => {
 
     atualizarTipoTosa();
     atualizarHorarios();
+
+    mensagemConfirmacao.textContent = 'Agendamento confirmado! Esperamos você e seu pet.';
 });
