@@ -241,6 +241,21 @@ footer li span {
     font-weight: 700;
 }
 
+/* Página Login */
+.link-voltar {
+    display: block;
+    margin-top: 1.5rem;
+    text-align: center;
+    font-weight: 700;
+    color: var(--cor-texto);
+    text-decoration: underline;
+}
+
+.link-voltar:focus-visible {
+    outline: 0.125rem solid var(--cor-texto);
+    outline-offset: 0.1rem;
+}
+
 @keyframes balancar {
     0%, 100% {
         rotate: 0deg;
@@ -285,21 +300,17 @@ footer li span {
     }
 }
 
-/* Página Login */
-.link-voltar {
-    display: block;
-    margin-top: 1.5rem;
-    text-align: center;
-    font-weight: 700;
-    color: var(--cor-texto);
-    text-decoration: none;
-}
 
 @media (hover: hover) {
     #servicos-cards button:hover,
     .formulario button:hover {
         color: var(--cor-fundo);
         background-color: var(--cor-texto);
+    }
+
+    .link-voltar:hover {
+        text-decoration-thickness: 0.15rem;
+        text-underline-offset: 0.3rem;
     }
 }
 
