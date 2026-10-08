@@ -68,18 +68,22 @@ function atualizarTipoTosa() {
 function preencherHorarios(duracao) {
     selectHorario.innerHTML = '<option value="">Selecione</option>';
 
-    for (let i = ABERTURA; i + duracao <= FECHAMENTO; i += INTERVALO) {
-        const horas = Math.floor(i / 60);
-        const minutos = i % 60;
-        const horasTexto = String(horas).padStart(2, '0');
-        const minutosTexto = String(minutos).padStart(2, '0');
-        const horario = `${horasTexto}:${minutosTexto}`;
-        
-        const horarioOption = document.createElement('option');
-        horarioOption.value = horario;
-        horarioOption.textContent = horario;
+    const agendamentosDoDia = buscarAgendamentosDoDia(campoData.value);
 
-        selectHorario.appendChild(horarioOption);
+    for (let i = ABERTURA; i + duracao <= FECHAMENTO; i += INTERVALO) {
+        if (!horarioOcupado(i, duracao, agendamentosDoDia)) {
+            const horas = Math.floor(i / 60);
+            const minutos = i % 60;
+            const horasTexto = String(horas).padStart(2, '0');
+            const minutosTexto = String(minutos).padStart(2, '0');
+            const horario = `${horasTexto}:${minutosTexto}`;
+
+            const horarioOption = document.createElement('option');
+            horarioOption.value = horario;
+            horarioOption.textContent = horario;
+
+            selectHorario.appendChild(horarioOption);
+        }
     }
 }
 
