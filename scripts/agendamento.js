@@ -132,6 +132,12 @@ function seSobrepoe(inicioA, fimA, inicioB, fimB) {
     return inicioA < fimB && fimA > inicioB;
 }
 
+function horarioOcupado(inicio, duracao, lista) {
+    return lista.some((item) => {
+        return seSobrepoe(inicio, inicio + duracao, inicioDoAgendamento(item), fimDoAgendamento(item));
+    });
+}
+
 // Envio de formulário de agendamento //
 formAgendamento.addEventListener('submit', (evento) => {
     evento.preventDefault();
