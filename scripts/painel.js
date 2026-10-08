@@ -1,4 +1,6 @@
 const botaoSair = document.getElementById('botao-sair');
+const listaAgenda = document.getElementById('lista-agenda');
+const campoDataAgenda = document.getElementById('data-agenda');
 
 botaoSair.addEventListener('click', () => {
     sessionStorage.removeItem('logado');
@@ -17,9 +19,17 @@ function buscarAgendamentosDoDia(data) {
     });
 }
 
-const campoDataAgenda = document.getElementById('data-agenda');
-
 campoDataAgenda.addEventListener('change', () => {
     const agendamentosDoDia = buscarAgendamentosDoDia(campoDataAgenda.value);
-    console.log(agendamentosDoDia);
+
+    listaAgenda.innerHTML = '';
+
+    agendamentosDoDia.forEach((agendamento) => {
+        const horario = agendamento.diaHora.split('T')[1];
+
+        const cartao = document.createElement('article');
+        cartao.textContent = `${horario} ${agendamento.pet}`;
+
+        listaAgenda.appendChild(cartao);
+    });
 });
