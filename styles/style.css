@@ -142,7 +142,7 @@ section {
 }
 
 #servicos-cards button,
-#agendamento button {
+.formulario button {
     align-self: flex-start;
     padding: 0.6rem 1rem;
     font-family: var(--fonte-corpo);
@@ -156,7 +156,7 @@ section {
 }
 
 #servicos-cards button:focus-visible,
-#agendamento button:focus-visible {
+.formulario button:focus-visible {
     outline: 0.125rem solid var(--cor-texto);
     outline-offset: 0.1rem;
 }
@@ -215,7 +215,7 @@ textarea {
     resize: vertical;
 }
 
-#agendamento button {
+.formulario button {
     width: 100%;
 }
 
@@ -287,7 +287,7 @@ footer li span {
 
 @media (hover: hover) {
     #servicos-cards button:hover,
-    #agendamento button:hover {
+    .formulario button:hover {
         color: var(--cor-fundo);
         background-color: var(--cor-texto);
     }
