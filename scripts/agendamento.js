@@ -196,4 +196,6 @@ selectServico.addEventListener('change', atualizarHorarios);
 
 campoData.addEventListener('change', () => {
     const agendamentos = buscarAgendamentosDoDia(campoData.value);
+
+    atualizarHorarios();
 });
