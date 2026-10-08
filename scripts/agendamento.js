@@ -121,6 +121,13 @@ function duracaoDoAgendamento(agendamento) {
     return servicoEncontrado.duracao;
 }
 
+function fimDoAgendamento(agendamento) {
+    const inicio = inicioDoAgendamento(agendamento);
+    const duracao = duracaoDoAgendamento(agendamento);
+
+    return inicio + duracao;
+}
+
 // Envio de formulário de agendamento //
 formAgendamento.addEventListener('submit', (evento) => {
     evento.preventDefault();
