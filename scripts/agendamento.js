@@ -201,7 +201,10 @@ selectServico.addEventListener('change', atualizarTipoTosa);
 selectServico.addEventListener('change', atualizarHorarios);
 
 campoData.addEventListener('change', () => {
-    const agendamentos = buscarAgendamentosDoDia(campoData.value);
+    if (ehDomingo(campoData.value)) {
+        campoData.value = '';
+        mensagemConfirmacao.textContent = 'Fechamos aos domingos. Escolha outro dia.';
+    }
 
     atualizarHorarios();
 });
