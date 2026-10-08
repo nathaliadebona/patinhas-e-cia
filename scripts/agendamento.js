@@ -142,6 +142,12 @@ function horarioOcupado(inicio, duracao, lista) {
     });
 }
 
+function ehDomingo(data) {
+    const diaDaSemana = new Date(`${data}T00:00`).getDay();
+
+    return diaDaSemana === 0;
+}
+
 // Envio de formulário de agendamento //
 formAgendamento.addEventListener('submit', (evento) => {
     evento.preventDefault();
