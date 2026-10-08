@@ -128,6 +128,10 @@ function fimDoAgendamento(agendamento) {
     return inicio + duracao;
 }
 
+function seSobrepoe(inicioA, fimA, inicioB, fimB) {
+    return inicioA < fimB && fimA > inicioB;
+}
+
 // Envio de formulário de agendamento //
 formAgendamento.addEventListener('submit', (evento) => {
     evento.preventDefault();
