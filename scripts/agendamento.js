@@ -99,6 +99,16 @@ function atualizarHorarios() {
 
 selectServico.addEventListener('change', atualizarHorarios);
 
+function buscarAgendamentosDoDia(data) {
+    const listaSalva = JSON.parse(localStorage.getItem('agendamentos')) || [];
+
+    return listaSalva.filter((item) => {
+        return item.diaHora.startsWith(data);
+    });
+}
+
+
+
 // Envio de formulário de agendamento //
 formAgendamento.addEventListener('submit', (evento) => {
     evento.preventDefault();
@@ -147,3 +157,5 @@ formAgendamento.addEventListener('submit', (evento) => {
         mensagemConfirmacao.textContent = '';
     }, 4000);
 });
+
+console.log(buscarAgendamentosDoDia('2026-10-09'));
