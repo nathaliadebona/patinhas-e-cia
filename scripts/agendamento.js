@@ -113,7 +113,13 @@ function inicioDoAgendamento(agendamento) {
     return horarioParaMinutos(partes[1]);
 }
 
-console.log(inicioDoAgendamento({ diaHora: '2026-10-10T14:30' }));
+function duracaoDoAgendamento(agendamento) {
+    const servicoEncontrado = servicos.find((item) => {
+        return item.id === agendamento.servico;
+    });
+
+    return servicoEncontrado.duracao;
+}
 
 // Envio de formulário de agendamento //
 formAgendamento.addEventListener('submit', (evento) => {
@@ -169,5 +175,4 @@ selectServico.addEventListener('change', atualizarHorarios);
 
 campoData.addEventListener('change', () => {
     const agendamentos = buscarAgendamentosDoDia(campoData.value);
-    console.log(agendamentos);
 });
