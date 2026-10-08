@@ -11,7 +11,7 @@ formLogin.addEventListener('submit', (evento) => {
     const senha = campoSenha.value;
 
     if (usuario === USUARIO_CORRETO && senha === SENHA_CORRETA) {
-        console.log('entrou')
+        sessionStorage.setItem('logado', 'sim');
     } else {
         console.log('dados incorretos')
     }
