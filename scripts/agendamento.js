@@ -108,7 +108,12 @@ function horarioParaMinutos(horario) {
     return Number(partes[0]) * 60 + Number(partes[1]);
 }
 
-console.log(horarioParaMinutos('09:30'))
+function inicioDoAgendamento(agendamento) {
+    const partes = agendamento.diaHora.split('T');
+    return horarioParaMinutos(partes[1]);
+}
+
+console.log(inicioDoAgendamento({ diaHora: '2026-10-10T14:30' }));
 
 // Envio de formulário de agendamento //
 formAgendamento.addEventListener('submit', (evento) => {
