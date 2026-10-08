@@ -70,8 +70,16 @@ function preencherHorarios(duracao) {
 
     const agendamentosDoDia = buscarAgendamentosDoDia(campoData.value);
 
+    const relogio = new Date();
+    const minutosAgora = relogio.getHours() * 60 + relogio.getMinutes();
+    const ehHoje = campoData.value === hoje;
+
+
     for (let i = ABERTURA; i + duracao <= FECHAMENTO; i += INTERVALO) {
-        if (!horarioOcupado(i, duracao, agendamentosDoDia)) {
+        const jaPassou = ehHoje && i <= minutosAgora;
+
+
+        if (!horarioOcupado(i, duracao, agendamentosDoDia) && !jaPassou) {
             const horas = Math.floor(i / 60);
             const minutos = i % 60;
             const horasTexto = String(horas).padStart(2, '0');
@@ -202,7 +210,7 @@ selectServico.addEventListener('change', atualizarHorarios);
 
 campoData.addEventListener('change', () => {
     mensagemConfirmacao.textContent = '';
-    
+
     if (ehDomingo(campoData.value)) {
         campoData.value = '';
         mensagemConfirmacao.textContent = 'Fechamos aos domingos. Escolha outro dia.';
