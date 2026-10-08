@@ -103,6 +103,13 @@ function buscarAgendamentosDoDia(data) {
     });
 }
 
+function horarioParaMinutos(horario) {
+    const partes = horario.split(':');
+    return Number(partes[0]) * 60 + Number(partes[1]);
+}
+
+console.log(horarioParaMinutos('09:30'))
+
 // Envio de formulário de agendamento //
 formAgendamento.addEventListener('submit', (evento) => {
     evento.preventDefault();
