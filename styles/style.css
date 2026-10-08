@@ -175,7 +175,7 @@ section {
     display: none;
 }
 
-#agendamento form {
+.formulario {
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -188,13 +188,13 @@ section {
     box-shadow: 0.25rem 0.25rem 0 var(--cor-texto);
 }
 
-#agendamento .campo {
+.campo {
     display: flex;
     flex-direction: column;
     gap: 0.3rem;
 }
 
-#agendamento .campo[hidden] {
+.campo[hidden] {
     display: none;
 }
 
