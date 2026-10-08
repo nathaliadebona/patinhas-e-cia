@@ -285,6 +285,16 @@ footer li span {
     }
 }
 
+/* Página Login */
+.link-voltar {
+    display: block;
+    margin-top: 1.5rem;
+    text-align: center;
+    font-weight: 700;
+    color: var(--cor-texto);
+    text-decoration: none;
+}
+
 @media (hover: hover) {
     #servicos-cards button:hover,
     .formulario button:hover {
