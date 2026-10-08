@@ -64,8 +64,6 @@ function atualizarTipoTosa() {
     }
 }
 
-selectServico.addEventListener('change', atualizarTipoTosa);
-
 // Horários //
 function preencherHorarios(duracao) {
     selectHorario.innerHTML = '<option value="">Selecione</option>';
@@ -97,8 +95,6 @@ function atualizarHorarios() {
     }
 }
 
-selectServico.addEventListener('change', atualizarHorarios);
-
 function buscarAgendamentosDoDia(data) {
     const listaSalva = JSON.parse(localStorage.getItem('agendamentos')) || [];
 
@@ -106,8 +102,6 @@ function buscarAgendamentosDoDia(data) {
         return item.diaHora.startsWith(data);
     });
 }
-
-
 
 // Envio de formulário de agendamento //
 formAgendamento.addEventListener('submit', (evento) => {
@@ -158,4 +152,10 @@ formAgendamento.addEventListener('submit', (evento) => {
     }, 4000);
 });
 
-console.log(buscarAgendamentosDoDia('2026-10-09'));
+selectServico.addEventListener('change', atualizarTipoTosa);
+selectServico.addEventListener('change', atualizarHorarios);
+
+campoData.addEventListener('change', () => {
+    const agendamentos = buscarAgendamentosDoDia(campoData.value);
+    console.log(agendamentos);
+});
