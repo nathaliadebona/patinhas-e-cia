@@ -345,7 +345,12 @@ footer li span {
     padding: 0.5rem 1rem;
 }
 
-
+#lista-agenda {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
 
 @keyframes balancar {
     0%, 100% {
@@ -388,6 +393,15 @@ footer li span {
         width: 8rem;
         transform: rotate(15deg);
         animation: balancar 3s ease-in-out infinite;
+    }
+
+    #lista-agenda {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    #lista-agenda p {
+        grid-column: 1 / -1;
     }
 }
 
