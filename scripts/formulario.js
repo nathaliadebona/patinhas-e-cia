@@ -53,10 +53,8 @@ function preencherHorarios(duracao) {
     const minutosAgora = relogio.getHours() * 60 + relogio.getMinutes();
     const ehHoje = campoData.value === hoje;
 
-
     for (let i = ABERTURA; i + duracao <= FECHAMENTO; i += INTERVALO) {
         const jaPassou = ehHoje && i <= minutosAgora;
-
 
         if (!horarioOcupado(i, duracao, agendamentosDoDia) && !jaPassou) {
             const horas = Math.floor(i / 60);
@@ -117,7 +115,7 @@ function seSobrepoe(inicioA, fimA, inicioB, fimB) {
 
 function horarioOcupado(inicio, duracao, lista) {
     return lista.some((item) => {
-        return seSobrepoe(inicio, inicio + duracao, inicioDoAgendamento(item), fimDoAgendamento(item));
+        return item.status !== 'cancelado' && seSobrepoe(inicio, inicio + duracao, inicioDoAgendamento(item), fimDoAgendamento(item));
     });
 }
 

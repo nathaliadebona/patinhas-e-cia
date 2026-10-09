@@ -14,4 +14,3 @@ const dia = agora.getDate();
 const mesTexto = String(mes).padStart(2, '0');
 const diaTexto = String(dia).padStart(2, '0');
 const hoje = `${ano}-${mesTexto}-${diaTexto}`;
-

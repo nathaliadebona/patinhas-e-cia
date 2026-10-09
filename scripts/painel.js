@@ -8,11 +8,7 @@ const campoEspecie = document.getElementById('especie');
 const campoValor = document.getElementById('valor');
 const selectPagamentoManual = document.getElementById('pagamento');
 const campoInfoAdicional = document.getElementById('informacao-adicional'); 
-
-botaoSair.addEventListener('click', () => {
-    sessionStorage.removeItem('logado');
-    window.location.href = 'login.html';
-});
+const formManual = document.getElementById('form-manual');
 
 if (sessionStorage.getItem('logado') !== 'sim') {
     window.location.href = 'login.html';
@@ -39,7 +35,7 @@ function mostrarAgenda() {
         });
 
         const cartao = document.createElement('article');
-        cartao.classList.add('cartao-agenda')
+        cartao.classList.add('cartao-agenda');
 
         const petNome = document.createElement('h3');
         petNome.textContent = `${horario} · ${agendamento.pet}`;
@@ -119,14 +115,17 @@ function mostrarAgenda() {
         cartao.appendChild(petNome);
         cartao.appendChild(nomeTutor);
         cartao.appendChild(servicoNome);
-        cartao.appendChild(rotuloPagamento)
+        cartao.appendChild(rotuloPagamento);
         cartao.appendChild(rotuloStatus);
     });
 }
 
 campoDataAgenda.addEventListener('change', mostrarAgenda);
 
-const formManual = document.getElementById('form-manual');
+botaoSair.addEventListener('click', () => {
+    sessionStorage.removeItem('logado');
+    window.location.href = 'login.html';
+});
 
 formManual.addEventListener('submit', (evento) => {
     evento.preventDefault();

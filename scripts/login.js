@@ -14,7 +14,7 @@ formLogin.addEventListener('submit', (evento) => {
     if (usuario === USUARIO_CORRETO && senha === SENHA_CORRETA) {
         sessionStorage.setItem('logado', 'sim');
 
-        window.location.href = 'painel.html'
+        window.location.href = 'painel.html';
     } else {
         mensagemErro.textContent = 'Usuário ou senha incorretos';
     }
