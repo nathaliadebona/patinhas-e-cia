@@ -71,6 +71,18 @@ campoDataAgenda.addEventListener('change', () => {
 
         const selectStatus = document.createElement('select');
 
+        selectStatus.addEventListener('change', () => {
+            const listaSalva = JSON.parse(localStorage.getItem('agendamentos')) || [];
+
+            const agendamentoSalvo = listaSalva.find((item) => {
+                return item.id === agendamento.id;
+            });
+
+            agendamentoSalvo.status = selectStatus.value;
+
+            localStorage.setItem('agendamentos', JSON.stringify(listaSalva));
+        });
+
         const opcaoAgendado = document.createElement('option');
         opcaoAgendado.value = 'agendado';
         opcaoAgendado.textContent = 'Agendado';
