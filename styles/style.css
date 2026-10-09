@@ -142,7 +142,8 @@ section {
 }
 
 #servicos-cards button,
-.formulario button {
+.formulario button,
+#botao-sair {
     align-self: flex-start;
     padding: 0.6rem 1rem;
     font-family: var(--fonte-corpo);
@@ -156,7 +157,8 @@ section {
 }
 
 #servicos-cards button:focus-visible,
-.formulario button:focus-visible {
+.formulario button:focus-visible
+#botao-sair:focus-visible {
     outline: 0.125rem solid var(--cor-texto);
     outline-offset: 0.1rem;
 }
@@ -269,7 +271,10 @@ footer li span {
     box-shadow: 0.25rem 0.25rem 0 var(--cor-texto);
 }
 
-
+#botao-sair {
+    margin-top: 0.8rem;
+    padding: 0.5rem 1rem;
+}
 
 @keyframes balancar {
     0%, 100% {
@@ -315,10 +320,10 @@ footer li span {
     }
 }
 
-
 @media (hover: hover) {
     #servicos-cards button:hover,
-    .formulario button:hover {
+    .formulario button:hover,
+    #botao-sair:hover {
         color: var(--cor-fundo);
         background-color: var(--cor-texto);
     }
