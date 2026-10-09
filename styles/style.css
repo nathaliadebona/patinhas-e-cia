@@ -85,13 +85,15 @@ section {
 
 #introducao,
 #servicos,
-#agendamento {
+#agendamento,
+#agendamento-manual {
     text-align: center;
 }
 
 #introducao h2,
 #servicos h2,
-#agendamento h2 {
+#agendamento h2,
+#agendamento-manual h2 {
     margin-bottom: 1rem;
 }
 
