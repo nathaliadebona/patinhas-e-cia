@@ -57,10 +57,31 @@ campoDataAgenda.addEventListener('change', () => {
 
         selectPagamento.value = agendamento.pagamento;
 
+        const selectStatus = document.createElement('select');
+
+        const opcaoAgendado = document.createElement('option');
+        opcaoAgendado.value = 'agendado';
+        opcaoAgendado.textContent = 'Agendado';
+
+        const opcaoConcluido = document.createElement('option');
+        opcaoConcluido.value = 'concluido';
+        opcaoConcluido.textContent = 'Concluído';
+
+        const opcaoCancelado = document.createElement('option');
+        opcaoCancelado.value = 'cancelado';
+        opcaoCancelado.textContent = 'Cancelado';
+
+        selectStatus.appendChild(opcaoAgendado);
+        selectStatus.appendChild(opcaoConcluido);
+        selectStatus.appendChild(opcaoCancelado);
+
+        selectStatus.value = agendamento.status;
+        
         listaAgenda.appendChild(cartao);
         cartao.appendChild(petNome);
         cartao.appendChild(nomeTutor);
         cartao.appendChild(servicoNome);
         cartao.appendChild(selectPagamento);
+        cartao.appendChild(selectStatus);
     });
 });
