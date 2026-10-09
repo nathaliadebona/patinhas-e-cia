@@ -1,6 +1,7 @@
 const formLogin = document.getElementById('form-login');
 const campoUsuario = document.getElementById('usuario');
 const campoSenha = document.getElementById('senha');
+const mensagemErro = document.getElementById('mensagem-erro');
 const USUARIO_CORRETO = 'equipe';
 const SENHA_CORRETA = '123456';
 
@@ -15,7 +16,7 @@ formLogin.addEventListener('submit', (evento) => {
 
         window.location.href = 'painel.html'
     } else {
-        console.log('dados incorretos')
+        mensagemErro.textContent = 'Usuário ou senha incorretos';
     }
 
 });
