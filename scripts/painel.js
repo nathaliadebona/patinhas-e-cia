@@ -22,6 +22,8 @@ function buscarAgendamentosDoDia(data) {
 campoDataAgenda.addEventListener('change', () => {
     const agendamentosDoDia = buscarAgendamentosDoDia(campoDataAgenda.value);
 
+    agendamentosDoDia.sort((a, b) => a.diaHora.localeCompare(b.diaHora));
+
     listaAgenda.innerHTML = '';
 
     agendamentosDoDia.forEach((agendamento) => {
