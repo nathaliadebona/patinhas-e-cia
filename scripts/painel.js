@@ -26,6 +26,12 @@ campoDataAgenda.addEventListener('change', () => {
 
     listaAgenda.innerHTML = '';
 
+    if(agendamentosDoDia.length === 0) {
+        const mensagem = document.createElement('p');
+        mensagem.textContent = 'Nenhum agendamento neste dia';
+        listaAgenda.appendChild(mensagem);
+    }
+
     agendamentosDoDia.forEach((agendamento) => {
         const horario = agendamento.diaHora.split('T')[1];
 
