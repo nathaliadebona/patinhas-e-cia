@@ -27,6 +27,13 @@ campoDataAgenda.addEventListener('change', () => {
     agendamentosDoDia.forEach((agendamento) => {
         const horario = agendamento.diaHora.split('T')[1];
 
+        const servicoEncontrado = servicos.find((item) => {
+            return item.id === agendamento.servico;
+        });
+
+        const servicoNome = document.createElement('p');
+        servicoNome.textContent = servicoEncontrado.nome;
+
         const cartao = document.createElement('article');
         
         const petNome = document.createElement('h3');
@@ -38,5 +45,6 @@ campoDataAgenda.addEventListener('change', () => {
         listaAgenda.appendChild(cartao);
         cartao.appendChild(petNome);
         cartao.appendChild(nomeTutor);
+        cartao.appendChild(servicoNome);
     });
 });
