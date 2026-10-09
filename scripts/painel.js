@@ -166,9 +166,10 @@ formManual.addEventListener('submit', (evento) => {
 
     atualizarTipoTosa();
     atualizarHorarios();
+
+    campoDataAgenda.value = data;
+    mostrarAgenda();
 });
-
-
 
 campoDataAgenda.value = hoje;
 mostrarAgenda();
