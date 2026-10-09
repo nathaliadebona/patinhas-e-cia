@@ -28,8 +28,15 @@ campoDataAgenda.addEventListener('change', () => {
         const horario = agendamento.diaHora.split('T')[1];
 
         const cartao = document.createElement('article');
-        cartao.textContent = `${horario} ${agendamento.pet}`;
+        
+        const petNome = document.createElement('h3');
+        petNome.textContent = `${horario} · ${agendamento.pet}`;
+
+        const nomeTutor = document.createElement('p');
+        nomeTutor.textContent = `${agendamento.tutor} · ${agendamento.telefone}`;
 
         listaAgenda.appendChild(cartao);
+        cartao.appendChild(petNome);
+        cartao.appendChild(nomeTutor);
     });
 });
