@@ -308,6 +308,19 @@ footer li span {
 }
 
 /* Painel da equipe */
+#agenda {
+    text-align: center;
+}
+
+#agenda h2 {
+    margin-bottom: 1rem;
+}
+
+#agenda .campo {
+    max-width: 20rem;
+    margin: 0 auto;
+}
+
 .cartao-agenda {
     display: flex;
     flex-direction: column;
