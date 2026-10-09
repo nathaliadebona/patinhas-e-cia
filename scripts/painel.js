@@ -158,7 +158,14 @@ formManual.addEventListener('submit', (evento) => {
         status: 'agendado'
     };
 
-    console.log(agendamento);
+    const listaAgendamentos = JSON.parse(localStorage.getItem('agendamentos')) || [];
+
+    listaAgendamentos.push(agendamento);
+    localStorage.setItem('agendamentos', JSON.stringify(listaAgendamentos));
+    formManual.reset();
+
+    atualizarTipoTosa();
+    atualizarHorarios();
 });
 
 
