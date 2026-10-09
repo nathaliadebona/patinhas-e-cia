@@ -6,6 +6,7 @@
     --cor-destaque-rosa: #FFD6E0;
     --cor-texto: #7A3E22;
     --cor-texto-secundario: #A0684A;
+    --cor-erro: #F8C9C4;
 
     --fonte-titulo: 'Fredoka', sans-serif;
     --fonte-corpo: 'Nunito', sans-serif;
@@ -283,6 +284,27 @@ footer li span {
     border-radius: 1rem;
     background-color: var(--cor-destaque-rosa);
     box-shadow: 0.25rem 0.25rem 0 var(--cor-texto);
+}
+
+#mensagem-confirmacao,
+#mensagem-erro {
+    max-width: 30rem;
+    margin: 1.5rem auto 0;
+    padding: 1rem;
+    text-align: center;
+    font-weight: 700;
+    border-radius: 1rem;
+    background-color: var(--cor-destaque-azul);
+    box-shadow: 0.25rem 0.25rem 0 var(--cor-texto);
+}
+
+#mensagem-confirmacao:empty,
+#mensagem-erro:empty {
+    display: none;
+}
+
+#mensagem-erro {
+    background-color: var(--cor-erro);
 }
 
 /* Painel da equipe */
