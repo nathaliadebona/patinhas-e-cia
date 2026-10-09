@@ -169,6 +169,12 @@ formManual.addEventListener('submit', (evento) => {
 
     campoDataAgenda.value = data;
     mostrarAgenda();
+
+    mensagemConfirmacao.textContent = 'Agendamento salvo!';
+
+    setTimeout(() => {
+        mensagemConfirmacao.textContent = '';
+    }, 4000);
 });
 
 campoDataAgenda.value = hoje;
