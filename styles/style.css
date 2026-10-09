@@ -271,10 +271,19 @@ footer li span {
     box-shadow: 0.25rem 0.25rem 0 var(--cor-texto);
 }
 
+.cartao-agenda label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    font-weight: 700;
+}
+
 #botao-sair {
     margin-top: 0.8rem;
     padding: 0.5rem 1rem;
 }
+
+
 
 @keyframes balancar {
     0%, 100% {
