@@ -256,6 +256,21 @@ footer li span {
     outline-offset: 0.1rem;
 }
 
+/* Painel da equipe */
+.cartao-agenda {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    text-align: left;
+    border-radius: 1rem;
+    background-color: var(--cor-cards);
+    box-shadow: 0.25rem 0.25rem 0 var(--cor-texto);
+}
+
+
+
 @keyframes balancar {
     0%, 100% {
         rotate: 0deg;

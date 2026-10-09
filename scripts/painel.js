@@ -40,6 +40,7 @@ function mostrarAgenda() {
         });
 
         const cartao = document.createElement('article');
+        cartao.classList.add('cartao-agenda')
 
         const petNome = document.createElement('h3');
         petNome.textContent = `${horario} · ${agendamento.pet}`;
