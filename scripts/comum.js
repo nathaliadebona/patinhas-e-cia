@@ -5,3 +5,13 @@ function buscarAgendamentosDoDia(data) {
         return item.diaHora.startsWith(data);
     });
 }
+
+const agora = new Date();
+const ano = agora.getFullYear();
+const mes = agora.getMonth() + 1;
+const dia = agora.getDate();
+
+const mesTexto = String(mes).padStart(2, '0');
+const diaTexto = String(dia).padStart(2, '0');
+const hoje = `${ano}-${mesTexto}-${diaTexto}`;
+
