@@ -76,6 +76,10 @@ function mostrarAgenda() {
 
             localStorage.setItem('agendamentos', JSON.stringify(listaSalva));
         });
+        
+        const rotuloPagamento = document.createElement('label');
+        rotuloPagamento.textContent = 'Pagamento';
+        rotuloPagamento.appendChild(selectPagamento);
 
         const selectStatus = document.createElement('select');
 
@@ -108,12 +112,16 @@ function mostrarAgenda() {
             localStorage.setItem('agendamentos', JSON.stringify(listaSalva));
         });
 
+        const rotuloStatus = document.createElement('label');
+        rotuloStatus.textContent = 'Status';
+        rotuloStatus.appendChild(selectStatus);
+
         listaAgenda.appendChild(cartao);
         cartao.appendChild(petNome);
         cartao.appendChild(nomeTutor);
         cartao.appendChild(servicoNome);
-        cartao.appendChild(selectPagamento);
-        cartao.appendChild(selectStatus);
+        cartao.appendChild(rotuloPagamento)
+        cartao.appendChild(rotuloStatus);
     });
 }
 
