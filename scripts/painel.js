@@ -44,6 +44,18 @@ campoDataAgenda.addEventListener('change', () => {
 
         const selectPagamento = document.createElement('select');
 
+        selectPagamento.addEventListener('change', () => {
+            const listaSalva = JSON.parse(localStorage.getItem('agendamentos')) || [];
+
+            const agendamentoSalvo = listaSalva.find((item) => {
+                return item.id === agendamento.id;
+            });
+
+            agendamentoSalvo.pagamento = selectPagamento.value;
+
+            localStorage.setItem('agendamentos', JSON.stringify(listaSalva));
+        });
+
         const opcaoPendente = document.createElement('option');
         opcaoPendente.value = 'pendente';
         opcaoPendente.textContent = 'Pendente';
