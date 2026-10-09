@@ -11,13 +11,7 @@ if (sessionStorage.getItem('logado') !== 'sim') {
     window.location.href = 'login.html';
 }
 
-function buscarAgendamentosDoDia(data) {
-    const listaSalva = JSON.parse(localStorage.getItem('agendamentos')) || [];
 
-    return listaSalva.filter((item) => {
-        return item.diaHora.startsWith(data);
-    });
-}
 
 function mostrarAgenda() {
     const agendamentosDoDia = buscarAgendamentosDoDia(campoDataAgenda.value);
