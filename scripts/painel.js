@@ -142,7 +142,26 @@ formManual.addEventListener('submit', (evento) => {
     const valor = Number(campoValor.value);
     const pagamento = selectPagamentoManual.value;
     const infoAdicional = campoInfoAdicional.value;
+
+    const agendamento = {
+        id: Date.now(),
+        tutor: nome,
+        telefone: telefone,
+        pet: petNome,
+        especie: especie,
+        servico: servico,
+        tipoTosa: tipoTosa,
+        diaHora: `${data}T${horario}`,
+        informacoes: infoAdicional,
+        valor: valor,
+        pagamento: pagamento,
+        status: 'agendado'
+    };
+
+    console.log(agendamento);
 });
+
+
 
 campoDataAgenda.value = hoje;
 mostrarAgenda();
