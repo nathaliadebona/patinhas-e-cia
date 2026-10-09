@@ -42,9 +42,25 @@ campoDataAgenda.addEventListener('change', () => {
         const nomeTutor = document.createElement('p');
         nomeTutor.textContent = `${agendamento.tutor} · ${agendamento.telefone}`;
 
+        const selectPagamento = document.createElement('select');
+
+        const opcaoPendente = document.createElement('option');
+        opcaoPendente.value = 'pendente';
+        opcaoPendente.textContent = 'Pendente';
+
+        const opcaoPago = document.createElement('option');
+        opcaoPago.value = 'pago';
+        opcaoPago.textContent = 'Pago';
+
+        selectPagamento.appendChild(opcaoPendente);
+        selectPagamento.appendChild(opcaoPago);
+
+        selectPagamento.value = agendamento.pagamento;
+
         listaAgenda.appendChild(cartao);
         cartao.appendChild(petNome);
         cartao.appendChild(nomeTutor);
         cartao.appendChild(servicoNome);
+        cartao.appendChild(selectPagamento);
     });
 });
