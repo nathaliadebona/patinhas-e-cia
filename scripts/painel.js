@@ -1,6 +1,13 @@
 const botaoSair = document.getElementById('botao-sair');
 const listaAgenda = document.getElementById('lista-agenda');
 const campoDataAgenda = document.getElementById('data-agenda');
+const campoNomeTutor = document.getElementById('nome');
+const campoTelefoneTutor = document.getElementById('telefone');
+const campoPetNome = document.getElementById('pet-nome');
+const campoEspecie = document.getElementById('especie');
+const campoValor = document.getElementById('valor');
+const selectPagamentoManual = document.getElementById('pagamento');
+const campoInfoAdicional = document.getElementById('informacao-adicional'); 
 
 botaoSair.addEventListener('click', () => {
     sessionStorage.removeItem('logado');
@@ -118,6 +125,24 @@ function mostrarAgenda() {
 }
 
 campoDataAgenda.addEventListener('change', mostrarAgenda);
+
+const formManual = document.getElementById('form-manual');
+
+formManual.addEventListener('submit', (evento) => {
+    evento.preventDefault();
+
+    const nome = campoNomeTutor.value;
+    const telefone = campoTelefoneTutor.value;
+    const petNome = campoPetNome.value;
+    const especie = campoEspecie.value;
+    const servico = selectServico.value;
+    const tipoTosa = selectTipoTosa.value;
+    const data = campoData.value;
+    const horario = selectHorario.value;
+    const valor = Number(campoValor.value);
+    const pagamento = selectPagamentoManual.value;
+    const infoAdicional = campoInfoAdicional.value;
+});
 
 campoDataAgenda.value = hoje;
 mostrarAgenda();
