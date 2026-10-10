@@ -1,5 +1,15 @@
 const listaPlanos = document.getElementById('lista-planos');
 
+function calcularValorAvulso(plano) {
+    return plano.inclui.reduce((acumulado, item) => {
+        const servicoEncontrado = servicos.find((servico) => {
+            return servico.id === item.servico;
+        });
+
+        return acumulado + servicoEncontrado.valor * item.quantidade;
+    }, 0);
+}
+
 planos.forEach((plano) => {
     const cartao = document.createElement('article');
     cartao.classList.add('cartao-plano');
