@@ -38,6 +38,18 @@ planos.forEach((plano) => {
         listaInclui.appendChild(itemLista);
     });
 
+    const valorAvulso = calcularValorAvulso(plano);
+    const economia = valorAvulso - plano.valor;
+
+    if (economia > 0) {
+        const economiaFormatada = economia.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+
+        const textoEconomia = document.createElement('p');
+        textoEconomia.textContent = `Economize ${economiaFormatada} por mês`;
+
+        cartao.appendChild(textoEconomia);
+    }
+
     listaPlanos.appendChild(cartao);
     cartao.appendChild(nome);
     cartao.appendChild(preco);
