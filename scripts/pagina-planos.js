@@ -52,9 +52,19 @@ planos.forEach((plano) => {
         cartao.appendChild(textoEconomia);
     }
 
+    const botaoAssinar = document.createElement('button');
+    botaoAssinar.type = 'button';
+    botaoAssinar.textContent = "Assinar";
+    botaoAssinar.ariaLabel = `Assinar o plano ${plano.nome}`;
+
+    botaoAssinar.addEventListener('click', () => {
+        console.log(plano.id);
+    });
+
     listaPlanos.appendChild(cartao);
     cartao.appendChild(nome);
     cartao.appendChild(preco);
     cartao.appendChild(descricao);
     cartao.appendChild(listaInclui);
+    cartao.appendChild(botaoAssinar);
 });
