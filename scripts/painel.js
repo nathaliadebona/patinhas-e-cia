@@ -10,6 +10,7 @@ const selectPagamentoManual = document.getElementById('pagamento');
 const campoInfoAdicional = document.getElementById('informacao-adicional'); 
 const formManual = document.getElementById('form-manual');
 const totalDia = document.getElementById('total-dia');
+const totalRecebido = document.getElementById('total-recebido');
 const filtroPagamento = document.getElementById('filtro-pagamento');
 const filtroStatus = document.getElementById('filtro-status');
 
@@ -33,6 +34,14 @@ function atualizarTotal() {
     const total = calcularTotal(aReceber);
     const totalFormatado = total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
     totalDia.innerHTML = `A receber: <strong>${totalFormatado}</strong>`;
+
+    const recebidos = listaDoDia.filter((item) => {
+        return item.pagamento === 'pago' && item.status !== 'cancelado';
+    });
+
+    const totalPago = calcularTotal(recebidos);
+    const totalPagoFormatado = totalPago.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    totalRecebido.innerHTML = `Recebido: <strong>${totalPagoFormatado}</strong>`;
 }
 
 function mostrarAgenda() {
