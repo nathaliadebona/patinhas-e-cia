@@ -20,7 +20,8 @@ planos.forEach((plano) => {
     const valorFormatado = plano.valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
     const preco = document.createElement('p');
-    preco.textContent = `${valorFormatado} por mês`;
+    preco.classList.add('preco-plano')
+    preco.innerHTML = `<strong>${valorFormatado}</strong> por mês`;
 
     const descricao = document.createElement('p');
     descricao.textContent = plano.descricao;

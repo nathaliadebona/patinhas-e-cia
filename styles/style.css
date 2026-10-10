@@ -477,6 +477,11 @@ footer li span {
     list-style: none;
 }
 
+.preco-plano strong {
+    font-family: var(--fonte-titulo);
+    font-size: 1.7rem;
+}
+
 /* Desktop */
 @media (min-width: 48rem) {
     #servicos-cards {
