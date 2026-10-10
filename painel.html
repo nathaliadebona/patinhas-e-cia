@@ -28,7 +28,30 @@
                 <label for="data-agenda">Data</label>
                 <input type="date" id="data-agenda">
             </div>
-            
+
+            <details>
+                <summary><i class="fa-solid fa-filter" aria-hidden="true"></i> Filtros</summary>
+
+                <div class="campo">
+                    <label for="filtro-pagamento">Pagamento</label>
+                    <select name="filtro-pagamento" id="filtro-pagamento">
+                        <option value="">Todos</option>
+                        <option value="pendente">Pendente</option>
+                        <option value="pago">Pago</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="filtro-status">Status</label>
+                    <select name="filtro-status" id="filtro-status">
+                        <option value="">Todos</option>
+                        <option value="agendado">Agendado</option>
+                        <option value="concluido">Concluído</option>
+                        <option value="cancelado">Cancelado</option>
+                    </select>
+                </div>
+            </details>
+
             <p id="total-dia" role="status"></p>
 
             <div id="lista-agenda"></div>
