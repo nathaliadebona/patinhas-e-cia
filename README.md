@@ -6,7 +6,7 @@ Designed and built as a front-end learning project, with a focus on fundamentals
 
 ## Live demo
 
-[Open the site](https://nathaliadebona.github.io/REPOSITORY-NAME/)
+[Open the site](https://nathaliadebona.github.io/patinhas-e-cia/)
 
 ## Features
 
