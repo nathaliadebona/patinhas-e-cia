@@ -9,6 +9,7 @@ const campoValor = document.getElementById('valor');
 const selectPagamentoManual = document.getElementById('pagamento');
 const campoInfoAdicional = document.getElementById('informacao-adicional'); 
 const formManual = document.getElementById('form-manual');
+const totalDia = document.getElementById('total-dia');
 
 if (sessionStorage.getItem('logado') !== 'sim') {
     window.location.href = 'login.html';
@@ -29,7 +30,9 @@ function mostrarAgenda() {
         return item.pagamento === 'pendente' && item.status !== 'cancelado';
     });
 
-    console.log(calcularTotal(aReceber));
+    const total = calcularTotal(aReceber);
+    const totalFormatado = total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    totalDia.textContent = `A receber: ${totalFormatado}`;
 
     listaAgenda.innerHTML = '';
 
