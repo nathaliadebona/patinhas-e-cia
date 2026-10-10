@@ -10,6 +10,8 @@ const selectPagamentoManual = document.getElementById('pagamento');
 const campoInfoAdicional = document.getElementById('informacao-adicional'); 
 const formManual = document.getElementById('form-manual');
 const totalDia = document.getElementById('total-dia');
+const filtroPagamento = document.getElementById('filtro-pagamento');
+const filtroStatus = document.getElementById('filtro-status');
 
 if (sessionStorage.getItem('logado') !== 'sim') {
     window.location.href = 'login.html';
@@ -40,15 +42,20 @@ function mostrarAgenda() {
 
     atualizarTotal();
 
+    const agendamentosFiltrados = agendamentosDoDia.filter((item) => {
+        return (filtroPagamento.value === '' || item.pagamento === filtroPagamento.value)
+            && (filtroStatus.value === '' || item.status === filtroStatus.value);
+    });
+
     listaAgenda.innerHTML = '';
 
-    if (agendamentosDoDia.length === 0) {
+    if (agendamentosFiltrados.length === 0) {
         const mensagem = document.createElement('p');
         mensagem.textContent = 'Nenhum agendamento neste dia';
         listaAgenda.appendChild(mensagem);
     }
 
-    agendamentosDoDia.forEach((agendamento) => {
+    agendamentosFiltrados.forEach((agendamento) => {
         const horario = agendamento.diaHora.split('T')[1];
 
         const servicoEncontrado = servicos.find((item) => {
@@ -152,6 +159,8 @@ function mostrarAgenda() {
 }
 
 campoDataAgenda.addEventListener('change', mostrarAgenda);
+filtroPagamento.addEventListener('change', mostrarAgenda);
+filtroStatus.addEventListener('change', mostrarAgenda);
 
 botaoSair.addEventListener('click', () => {
     sessionStorage.removeItem('logado');
