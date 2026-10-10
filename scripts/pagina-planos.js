@@ -24,6 +24,7 @@ planos.forEach((plano) => {
     preco.innerHTML = `<strong>${valorFormatado}</strong> por mês`;
 
     const descricao = document.createElement('p');
+    descricao.classList.add('descricao-plano');
     descricao.textContent = plano.descricao;
 
     const listaInclui = document.createElement('ul');

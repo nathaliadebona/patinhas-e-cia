@@ -7,7 +7,7 @@
     --cor-erro: #F8C9C4;
     --cor-sucesso: #D5EDD0;
     --cor-texto: #7A3E22;
-    --cor-texto-secundario: #A0684A;
+    --cor-texto-secundario: #865234;
 
     --fonte-titulo: 'Fredoka', sans-serif;
     --fonte-corpo: 'Nunito', sans-serif;
@@ -480,6 +480,10 @@ footer li span {
 .preco-plano strong {
     font-family: var(--fonte-titulo);
     font-size: 1.7rem;
+}
+
+.descricao-plano {
+    color: var(--cor-texto-secundario);
 }
 
 /* Desktop */
