@@ -1,18 +1,24 @@
 const botaoSair = document.getElementById('botao-sair');
 const listaAgenda = document.getElementById('lista-agenda');
 const campoDataAgenda = document.getElementById('data-agenda');
+const totalDia = document.getElementById('total-dia');
+const totalRecebido = document.getElementById('total-recebido');
+const filtroPagamento = document.getElementById('filtro-pagamento');
+const filtroStatus = document.getElementById('filtro-status');
+const mensagemAgenda = document.getElementById('mensagem-agenda');
+
+const dialogAgendamento = document.getElementById('agendamento-manual');
+const botaoAbrirAgendamento = document.getElementById('abrir-agendamento');
+const botaoFecharAgendamento = document.getElementById('fechar-agendamento');
+
+const formManual = document.getElementById('form-manual');
 const campoNomeTutor = document.getElementById('nome');
 const campoTelefoneTutor = document.getElementById('telefone');
 const campoPetNome = document.getElementById('pet-nome');
 const campoEspecie = document.getElementById('especie');
 const campoValor = document.getElementById('valor');
 const selectPagamentoManual = document.getElementById('pagamento');
-const campoInfoAdicional = document.getElementById('informacao-adicional'); 
-const formManual = document.getElementById('form-manual');
-const totalDia = document.getElementById('total-dia');
-const totalRecebido = document.getElementById('total-recebido');
-const filtroPagamento = document.getElementById('filtro-pagamento');
-const filtroStatus = document.getElementById('filtro-status');
+const campoInfoAdicional = document.getElementById('informacao-adicional');
 
 if (sessionStorage.getItem('logado') !== 'sim') {
     window.location.href = 'login.html';
@@ -83,6 +89,11 @@ function mostrarAgenda() {
         const servicoNome = document.createElement('p');
         servicoNome.textContent = servicoEncontrado.nome;
 
+        const valorFormatado = agendamento.valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+
+        const valorCobrado = document.createElement('p');
+        valorCobrado.textContent = `Valor: ${valorFormatado}`;
+
         const selectPagamento = document.createElement('select');
 
         const opcaoPendente = document.createElement('option');
@@ -107,10 +118,10 @@ function mostrarAgenda() {
             agendamentoSalvo.pagamento = selectPagamento.value;
 
             localStorage.setItem('agendamentos', JSON.stringify(listaSalva));
-        
+
             atualizarTotal();
         });
-        
+
         const rotuloPagamento = document.createElement('label');
         rotuloPagamento.textContent = 'Pagamento';
         rotuloPagamento.appendChild(selectPagamento);
@@ -144,18 +155,13 @@ function mostrarAgenda() {
             agendamentoSalvo.status = selectStatus.value;
 
             localStorage.setItem('agendamentos', JSON.stringify(listaSalva));
-        
+
             atualizarTotal();
         });
 
         const rotuloStatus = document.createElement('label');
         rotuloStatus.textContent = 'Status';
         rotuloStatus.appendChild(selectStatus);
-
-        const valorFormatado = agendamento.valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-
-        const valorCobrado = document.createElement('p');
-        valorCobrado.textContent = `Valor: ${valorFormatado}`;
 
         listaAgenda.appendChild(cartao);
         cartao.appendChild(petNome);
@@ -174,6 +180,21 @@ filtroStatus.addEventListener('change', mostrarAgenda);
 botaoSair.addEventListener('click', () => {
     sessionStorage.removeItem('logado');
     window.location.href = 'login.html';
+});
+
+botaoAbrirAgendamento.addEventListener('click', () => {
+    dialogAgendamento.showModal();
+});
+
+botaoFecharAgendamento.addEventListener('click', () => {
+    dialogAgendamento.close();
+});
+
+dialogAgendamento.addEventListener('close', () => {
+    formManual.reset();
+    atualizarTipoTosa();
+    atualizarHorarios();
+    mensagemConfirmacao.textContent = '';
 });
 
 formManual.addEventListener('submit', (evento) => {
@@ -210,21 +231,18 @@ formManual.addEventListener('submit', (evento) => {
 
     listaAgendamentos.push(agendamento);
     localStorage.setItem('agendamentos', JSON.stringify(listaAgendamentos));
-    formManual.reset();
-
-    atualizarTipoTosa();
-    atualizarHorarios();
 
     campoDataAgenda.value = data;
     mostrarAgenda();
 
-    mensagemConfirmacao.textContent = 'Agendamento salvo!';
+    dialogAgendamento.close();
+
+    mensagemAgenda.textContent = 'Agendamento salvo!';
 
     setTimeout(() => {
-        mensagemConfirmacao.textContent = '';
+        mensagemAgenda.textContent = '';
     }, 4000);
 });
 
 campoDataAgenda.value = hoje;
 mostrarAgenda();
-
