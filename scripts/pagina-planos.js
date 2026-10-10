@@ -19,8 +19,12 @@ planos.forEach((plano) => {
     listaInclui.classList.add('lista-inclui');
 
     plano.inclui.forEach((item) => {
+        const servicoEncontrado = servicos.find((servico) => {
+            return servico.id === item.servico;
+        });
+
         const itemLista = document.createElement('li');
-        itemLista.textContent = `${item.quantidade}x ${item.servico}`;
+        itemLista.textContent = `${item.quantidade}x ${servicoEncontrado.nome}`;
         listaInclui.appendChild(itemLista);
     });
 
