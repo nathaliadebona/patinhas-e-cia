@@ -12,7 +12,21 @@ planos.forEach((plano) => {
     const preco = document.createElement('p');
     preco.textContent = `${valorFormatado} por mês`;
 
+    const descricao = document.createElement('p');
+    descricao.textContent = plano.descricao;
+
+    const listaInclui = document.createElement('ul');
+    listaInclui.classList.add('lista-inclui');
+
+    plano.inclui.forEach((item) => {
+        const itemLista = document.createElement('li');
+        itemLista.textContent = `${item.quantidade}x ${item.servico}`;
+        listaInclui.appendChild(itemLista);
+    });
+
     listaPlanos.appendChild(cartao);
     cartao.appendChild(nome);
     cartao.appendChild(preco);
+    cartao.appendChild(descricao);
+    cartao.appendChild(listaInclui);
 });
