@@ -183,7 +183,8 @@ section {
 .formulario button,
 #botao-sair,
 #abrir-agendamento,
-.botao-editar {
+.botao-editar,
+.botao-assinar {
     align-self: flex-start;
     padding: 0.6rem 1rem;
     font-family: var(--fonte-corpo);
@@ -201,7 +202,8 @@ section {
 #botao-sair:focus-visible,
 #abrir-agendamento:focus-visible,
 #fechar-agendamento:focus-visible,
-.botao-agendar:focus-visible {
+.botao-agendar:focus-visible,
+.botao-assinar:focus-visible {
     outline: 0.125rem solid var(--cor-texto);
     outline-offset: 0.1rem;
 }
@@ -486,6 +488,10 @@ footer li span {
     color: var(--cor-texto-secundario);
 }
 
+.botao-assinar {
+    width: 100%;
+}
+
 /* Desktop */
 @media (min-width: 48rem) {
     #servicos-cards {
@@ -543,7 +549,8 @@ footer li span {
     #botao-sair:hover,
     #abrir-agendamento:hover,
     #fechar-agendamento:hover,
-    .botao-editar:hover {
+    .botao-editar:hover,
+    .botao-assinar:hover {
         color: var(--cor-fundo);
         background-color: var(--cor-texto);
     }

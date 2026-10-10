@@ -54,6 +54,7 @@ planos.forEach((plano) => {
 
     const botaoAssinar = document.createElement('button');
     botaoAssinar.type = 'button';
+    botaoAssinar.classList.add('botao-assinar');
     botaoAssinar.textContent = "Assinar";
     botaoAssinar.ariaLabel = `Assinar o plano ${plano.nome}`;
 
