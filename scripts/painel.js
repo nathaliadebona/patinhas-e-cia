@@ -30,7 +30,7 @@ function atualizarTotal() {
 
     const total = calcularTotal(aReceber);
     const totalFormatado = total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-    totalDia.textContent = `A receber: ${totalFormatado}`;
+    totalDia.innerHTML = `A receber: <strong>${totalFormatado}</strong>`;
 }
 
 function mostrarAgenda() {
