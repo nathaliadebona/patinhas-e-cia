@@ -1,4 +1,7 @@
 const listaPlanos = document.getElementById('lista-planos');
+const dialogAssinatura = document.getElementById('assinatura');
+const botaoFecharAssinatura = document.getElementById('fechar-assinatura');
+const textoPlanoEscolhido = document.getElementById('plano-escolhido');
 
 function calcularValorAvulso(plano) {
     return plano.inclui.reduce((acumulado, item) => {
@@ -59,7 +62,9 @@ planos.forEach((plano) => {
     botaoAssinar.ariaLabel = `Assinar o plano ${plano.nome}`;
 
     botaoAssinar.addEventListener('click', () => {
-        console.log(plano.id);
+        textoPlanoEscolhido.textContent = `${plano.nome} · ${valorFormatado} por mês`;
+
+        dialogAssinatura.showModal();
     });
 
     listaPlanos.appendChild(cartao);
@@ -68,4 +73,8 @@ planos.forEach((plano) => {
     cartao.appendChild(descricao);
     cartao.appendChild(listaInclui);
     cartao.appendChild(botaoAssinar);
+});
+
+botaoFecharAssinatura.addEventListener('click', () => {
+    dialogAssinatura.close();
 });
