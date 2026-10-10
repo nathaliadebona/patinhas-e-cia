@@ -179,7 +179,8 @@ section {
 #servicos-cards button,
 .formulario button,
 #botao-sair,
-#abrir-agendamento {
+#abrir-agendamento,
+.botao-editar {
     align-self: flex-start;
     padding: 0.6rem 1rem;
     font-family: var(--fonte-corpo);
@@ -196,7 +197,8 @@ section {
 .formulario button:focus-visible,
 #botao-sair:focus-visible,
 #abrir-agendamento:focus-visible,
-#fechar-agendamento:focus-visible {
+#fechar-agendamento:focus-visible,
+.botao-agendar:focus-visible {
     outline: 0.125rem solid var(--cor-texto);
     outline-offset: 0.1rem;
 }
@@ -489,7 +491,8 @@ footer li span {
     .formulario button:hover,
     #botao-sair:hover,
     #abrir-agendamento:hover,
-    #fechar-agendamento:hover {
+    #fechar-agendamento:hover,
+    .botao-editar:hover {
         color: var(--cor-fundo);
         background-color: var(--cor-texto);
     }

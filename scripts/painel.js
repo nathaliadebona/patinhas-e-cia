@@ -8,6 +8,8 @@ const filtroStatus = document.getElementById('filtro-status');
 const mensagemAgenda = document.getElementById('mensagem-agenda');
 
 const dialogAgendamento = document.getElementById('agendamento-manual');
+const tituloAgendamento = document.getElementById('titulo-agendamento');
+const botaoSalvarAgendamento = document.getElementById('botao-salvar');
 const botaoAbrirAgendamento = document.getElementById('abrir-agendamento');
 const botaoFecharAgendamento = document.getElementById('fechar-agendamento');
 
@@ -24,6 +26,7 @@ if (sessionStorage.getItem('logado') !== 'sim') {
     window.location.href = 'login.html';
 }
 
+// Totais //
 function calcularTotal(lista) {
     return lista.reduce((acumulado, agendamento) => {
         return acumulado + agendamento.valor;
@@ -50,6 +53,47 @@ function atualizarTotal() {
     totalRecebido.innerHTML = `Recebido: <strong>${totalPagoFormatado}</strong>`;
 }
 
+// Modal: criar e editar //
+function abrirModalNovo() {
+    idEmEdicao = null;
+
+    tituloAgendamento.textContent = 'Agendamento manual';
+    botaoSalvarAgendamento.textContent = 'Agendar';
+    campoData.min = hoje;
+
+    dialogAgendamento.showModal();
+}
+
+function abrirModalEdicao(agendamento) {
+    idEmEdicao = agendamento.id;
+
+    tituloAgendamento.textContent = 'Editar agendamento';
+    botaoSalvarAgendamento.textContent = 'Salvar alterações';
+    campoData.min = '';
+
+    const partes = agendamento.diaHora.split('T');
+
+    campoNomeTutor.value = agendamento.tutor;
+    campoTelefoneTutor.value = agendamento.telefone;
+    campoPetNome.value = agendamento.pet;
+    campoEspecie.value = agendamento.especie;
+
+    selectServico.value = agendamento.servico;
+    atualizarTipoTosa();
+    selectTipoTosa.value = agendamento.tipoTosa;
+
+    campoData.value = partes[0];
+    atualizarHorarios();
+    selectHorario.value = partes[1];
+
+    campoValor.value = agendamento.valor;
+    selectPagamentoManual.value = agendamento.pagamento;
+    campoInfoAdicional.value = agendamento.informacoes;
+
+    dialogAgendamento.showModal();
+}
+
+// Agenda //
 function mostrarAgenda() {
     const agendamentosDoDia = buscarAgendamentosDoDia(campoDataAgenda.value);
 
@@ -163,6 +207,16 @@ function mostrarAgenda() {
         rotuloStatus.textContent = 'Status';
         rotuloStatus.appendChild(selectStatus);
 
+        const botaoEditar = document.createElement('button');
+        botaoEditar.type = 'button';
+        botaoEditar.classList.add('botao-editar');
+        botaoEditar.textContent = 'Editar';
+        botaoEditar.setAttribute('aria-label', `Editar agendamento de ${agendamento.pet}`);
+
+        botaoEditar.addEventListener('click', () => {
+            abrirModalEdicao(agendamento);
+        });
+
         listaAgenda.appendChild(cartao);
         cartao.appendChild(petNome);
         cartao.appendChild(nomeTutor);
@@ -170,6 +224,7 @@ function mostrarAgenda() {
         cartao.appendChild(valorCobrado);
         cartao.appendChild(rotuloPagamento);
         cartao.appendChild(rotuloStatus);
+        cartao.appendChild(botaoEditar);
     });
 }
 
@@ -182,21 +237,22 @@ botaoSair.addEventListener('click', () => {
     window.location.href = 'login.html';
 });
 
-botaoAbrirAgendamento.addEventListener('click', () => {
-    dialogAgendamento.showModal();
-});
+botaoAbrirAgendamento.addEventListener('click', abrirModalNovo);
 
 botaoFecharAgendamento.addEventListener('click', () => {
     dialogAgendamento.close();
 });
 
 dialogAgendamento.addEventListener('close', () => {
+    idEmEdicao = null;
+
     formManual.reset();
     atualizarTipoTosa();
     atualizarHorarios();
     mensagemConfirmacao.textContent = '';
 });
 
+// Salvar: criar ou atualizar //
 formManual.addEventListener('submit', (evento) => {
     evento.preventDefault();
 
@@ -212,32 +268,52 @@ formManual.addEventListener('submit', (evento) => {
     const pagamento = selectPagamentoManual.value;
     const infoAdicional = campoInfoAdicional.value;
 
-    const agendamento = {
-        id: Date.now(),
-        tutor: nome,
-        telefone: telefone,
-        pet: petNome,
-        especie: especie,
-        servico: servico,
-        tipoTosa: tipoTosa,
-        diaHora: `${data}T${horario}`,
-        informacoes: infoAdicional,
-        valor: valor,
-        pagamento: pagamento,
-        status: 'agendado'
-    };
-
     const listaAgendamentos = JSON.parse(localStorage.getItem('agendamentos')) || [];
 
-    listaAgendamentos.push(agendamento);
+    if (idEmEdicao === null) {
+        const agendamento = {
+            id: Date.now(),
+            tutor: nome,
+            telefone: telefone,
+            pet: petNome,
+            especie: especie,
+            servico: servico,
+            tipoTosa: tipoTosa,
+            diaHora: `${data}T${horario}`,
+            informacoes: infoAdicional,
+            valor: valor,
+            pagamento: pagamento,
+            status: 'agendado'
+        };
+
+        listaAgendamentos.push(agendamento);
+
+        mensagemAgenda.textContent = 'Agendamento salvo!';
+    } else {
+        const agendamentoSalvo = listaAgendamentos.find((item) => {
+            return item.id === idEmEdicao;
+        });
+
+        agendamentoSalvo.tutor = nome;
+        agendamentoSalvo.telefone = telefone;
+        agendamentoSalvo.pet = petNome;
+        agendamentoSalvo.especie = especie;
+        agendamentoSalvo.servico = servico;
+        agendamentoSalvo.tipoTosa = tipoTosa;
+        agendamentoSalvo.diaHora = `${data}T${horario}`;
+        agendamentoSalvo.informacoes = infoAdicional;
+        agendamentoSalvo.valor = valor;
+        agendamentoSalvo.pagamento = pagamento;
+
+        mensagemAgenda.textContent = 'Agendamento atualizado!';
+    }
+
     localStorage.setItem('agendamentos', JSON.stringify(listaAgendamentos));
 
     campoDataAgenda.value = data;
     mostrarAgenda();
 
     dialogAgendamento.close();
-
-    mensagemAgenda.textContent = 'Agendamento salvo!';
 
     setTimeout(() => {
         mensagemAgenda.textContent = '';

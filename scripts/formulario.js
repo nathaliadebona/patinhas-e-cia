@@ -8,6 +8,9 @@ const ABERTURA = 540;
 const FECHAMENTO = 1080;
 const INTERVALO = 30;
 
+// Id do agendamento que está sendo editado (null = nenhum) //
+let idEmEdicao = null;
+
 // Opções de serviços //
 servicos.forEach((servico) => {
     const servicoOption = document.createElement('option');
@@ -33,7 +36,7 @@ function atualizarTipoTosa() {
             tipoOption.textContent = tipo.nome;
             selectTipoTosa.appendChild(tipoOption);
         });
-        
+
         selectTipoTosa.required = true;
 
     } else {
@@ -115,7 +118,9 @@ function seSobrepoe(inicioA, fimA, inicioB, fimB) {
 
 function horarioOcupado(inicio, duracao, lista) {
     return lista.some((item) => {
-        return item.status !== 'cancelado' && seSobrepoe(inicio, inicio + duracao, inicioDoAgendamento(item), fimDoAgendamento(item));
+        return item.status !== 'cancelado'
+            && item.id !== idEmEdicao
+            && seSobrepoe(inicio, inicio + duracao, inicioDoAgendamento(item), fimDoAgendamento(item));
     });
 }
 
@@ -124,8 +129,6 @@ function ehDomingo(data) {
 
     return diaDaSemana === 0;
 }
-
-
 
 selectServico.addEventListener('change', atualizarTipoTosa);
 selectServico.addEventListener('change', atualizarHorarios);
