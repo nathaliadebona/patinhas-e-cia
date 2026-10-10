@@ -121,7 +121,8 @@ section {
 }
 
 #introducao p,
-#agendamento p {
+#agendamento p,
+#planos-recorrentes p {
     margin-bottom: 2rem;
 }
 
