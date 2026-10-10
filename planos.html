@@ -28,6 +28,37 @@
 
             <a href="index.html" class="link-voltar"><i class="fa-solid fa-arrow-left"></i> Voltar para a área do tutor</a>
         </section>
+
+        <dialog id="assinatura" aria-labelledby="titulo-assinatura">
+            <button type="button" id="fechar-assinatura" aria-label="Fechar">
+                <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+            </button>
+
+            <h2 id="titulo-assinatura">Assinar plano</h2>
+
+            <p id="plano-escolhido"></p>
+
+            <form action="" id="form-assinatura" class="formulario">
+                <div class="campo">
+                    <label for="assinante-nome">Seu nome</label>
+                    <input type="text" id="assinante-nome" name="assinante-nome" required>
+                </div>
+
+                <div class="campo">
+                    <label for="assinante-telefone">Seu telefone</label>
+                    <input type="tel" id="assinante-telefone" name="assinante-telefone" required>
+                </div>
+
+                <div class="campo">
+                    <label for="assinante-pet">Nome do pet</label>
+                    <input type="text" id="assinante-pet" name="assinante-pet" required>
+                </div>
+
+                <button type="submit">Quero assinar</button>
+            </form>
+        </dialog>
+
+        <div id="mensagem-confirmacao" role="status"></div>
     </main>
 
     <footer>
