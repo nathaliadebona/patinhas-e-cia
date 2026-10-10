@@ -122,7 +122,7 @@ section {
 
 #introducao p,
 #agendamento p,
-#planos-recorrentes p {
+#planos-recorrentes > p {
     margin-bottom: 2rem;
 }
 
@@ -443,6 +443,40 @@ footer li span {
     transition: background-color 0.3s ease-in, color 0.3s ease-in;
 }
 
+/* Página de planos */
+#lista-planos {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.cartao-plano {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem;
+    text-align: left;
+    border-radius: 1rem;
+    background-color: var(--cor-cards);
+    box-shadow: 0.25rem 0.25rem 0 var(--cor-texto);
+}
+
+.cartao-plano:nth-child(1) {
+    background-color: var(--cor-destaque-azul);
+}
+
+.cartao-plano:nth-child(2) {
+    background-color: var(--cor-destaque-rosa);
+}
+
+.cartao-plano:nth-child(3) {
+    background-color: var(--cor-sucesso);
+}
+
+.lista-inclui {
+    list-style: none;
+}
+
 /* Desktop */
 @media (min-width: 48rem) {
     #servicos-cards {
@@ -485,6 +519,11 @@ footer li span {
     #totais {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    #lista-planos {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
