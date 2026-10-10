@@ -23,9 +23,12 @@ Designed and built as a front-end learning project, with a focus on fundamentals
 ### Staff panel
 - Simulated login with a protected panel and a logout button
 - Daily agenda that opens on today, with a date filter and appointments sorted by time
-- Appointment cards with time, pet, tutor, phone, and service
+- Appointment cards with time, pet, tutor, phone, service, and charged amount
 - Payment and status can be updated on each card, and changes are saved
-- Manual booking form with the same available-slot logic, plus price and payment fields
+- Daily totals: amount to receive (pending, not cancelled) and amount received (paid, not cancelled), updated as soon as a payment or status changes
+- Filters by payment and status in a collapsible panel (the totals always reflect the whole day)
+- Booking modal for manual appointments, with the same available-slot logic, plus price and payment fields
+- Edit any appointment in the same modal, keeping its own time slot available while editing
 - Friendly message for days without appointments
 
 ### Design and accessibility
@@ -34,10 +37,13 @@ Designed and built as a front-end learning project, with a focus on fundamentals
 - Sticker-style cards with solid shadows, and a decorative sticker on desktop
 - Playful animations that respect `prefers-reduced-motion`
 - Labels linked to every field, status and alert messages for screen readers, and visible keyboard focus
+- Native `<dialog>` for the booking modal (focus stays inside, Esc closes) and native `<details>` for the filters
+- Descriptive labels on icon-only and repeated buttons (for example, "Edit appointment for Thor")
 
 ## Tech stack
 
 - HTML5, CSS3 (Flexbox, Grid, media queries, custom properties), and vanilla JavaScript
+- Native `<dialog>` and `<details>` elements
 - `localStorage` for appointments and `sessionStorage` for the demo login
 - [Font Awesome](https://fontawesome.com/) (icons)
 - [Google Fonts](https://fonts.google.com/) (Fredoka and Nunito)
@@ -65,7 +71,7 @@ scripts/
   formulario.js   Shared booking logic (time slots, grooming types, Sundays)
   tutor.js        Tutor area: service buttons and booking submit
   login.js        Simulated login
-  painel.js       Staff panel: agenda, status, manual booking
+  painel.js       Staff panel: agenda, totals, filters, booking and editing
 styles/
   style.css       All styles
 assets/           Stickers and images
@@ -81,10 +87,6 @@ assets/           Stickers and images
 
 Planned features, not yet implemented:
 
-- Total to receive per day
-- Charged amount shown on each appointment card
-- Edit appointments
-- Filter by payment and service status
 - Recurring plans for tutors
 - Recurring clients area in the staff panel
 
