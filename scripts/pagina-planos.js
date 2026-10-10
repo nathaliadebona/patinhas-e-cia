@@ -34,7 +34,7 @@ planos.forEach((plano) => {
         });
 
         const itemLista = document.createElement('li');
-        itemLista.textContent = `${item.quantidade}x ${servicoEncontrado.nome}`;
+        itemLista.textContent = `${servicoEncontrado.nome}: ${item.quantidade} ${item.quantidade === 1 ? 'vez' : 'vezes'} ao mês`;
         listaInclui.appendChild(itemLista);
     });
 
