@@ -106,7 +106,8 @@ section {
 #servicos,
 #agendamento,
 #agendamento-manual,
-#agenda {
+#agenda,
+#planos-recorrentes {
     text-align: center;
 }
 
@@ -114,7 +115,8 @@ section {
 #servicos h2,
 #agendamento h2,
 #agendamento-manual h2,
-#agenda h2 {
+#agenda h2,
+#planos-recorrentes {
     margin-bottom: 1rem;
 }
 
