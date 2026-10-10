@@ -111,10 +111,16 @@ function mostrarAgenda() {
         rotuloStatus.textContent = 'Status';
         rotuloStatus.appendChild(selectStatus);
 
+        const valorFormatado = agendamento.valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+
+        const valorCobrado = document.createElement('p');
+        valorCobrado.textContent = `Valor: ${valorFormatado}`;
+
         listaAgenda.appendChild(cartao);
         cartao.appendChild(petNome);
         cartao.appendChild(nomeTutor);
         cartao.appendChild(servicoNome);
+        cartao.appendChild(valorCobrado);
         cartao.appendChild(rotuloPagamento);
         cartao.appendChild(rotuloStatus);
     });
