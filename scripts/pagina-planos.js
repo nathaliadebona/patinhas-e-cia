@@ -3,6 +3,13 @@ const dialogAssinatura = document.getElementById('assinatura');
 const botaoFecharAssinatura = document.getElementById('fechar-assinatura');
 const textoPlanoEscolhido = document.getElementById('plano-escolhido');
 
+const formAssinatura = document.getElementById('form-assinatura');
+const campoAssinanteNome = document.getElementById('assinante-nome');
+const campoAssinanteTelefone = document.getElementById('assinante-telefone');
+const campoAssinantePet = document.getElementById('assinante-pet');
+
+let planoEscolhido = null;
+
 function calcularValorAvulso(plano) {
     return plano.inclui.reduce((acumulado, item) => {
         const servicoEncontrado = servicos.find((servico) => {
@@ -62,6 +69,8 @@ planos.forEach((plano) => {
     botaoAssinar.ariaLabel = `Assinar o plano ${plano.nome}`;
 
     botaoAssinar.addEventListener('click', () => {
+        planoEscolhido = plano;
+
         textoPlanoEscolhido.textContent = `${plano.nome} · ${valorFormatado} por mês`;
 
         dialogAssinatura.showModal();
@@ -77,4 +86,31 @@ planos.forEach((plano) => {
 
 botaoFecharAssinatura.addEventListener('click', () => {
     dialogAssinatura.close();
+});
+
+// Envio do formulário de assinatura //
+formAssinatura.addEventListener('submit', (evento) => {
+    evento.preventDefault();
+
+    const nome = campoAssinanteNome.value;
+    const telefone = campoAssinanteTelefone.value;
+    const pet = campoAssinantePet.value;
+
+    const assinatura = {
+        id: Date.now(),
+        plano: planoEscolhido.id,
+        nome: nome,
+        telefone: telefone,
+        pet: pet,
+        valor: planoEscolhido.valor,
+        dataAssinatura: new Date().toISOString(),
+        status: 'novo'
+    };
+
+    const listaAssinaturas = JSON.parse(localStorage.getItem('assinaturas')) || [];
+
+    listaAssinaturas.push(assinatura);
+    localStorage.setItem('assinaturas', JSON.stringify(listaAssinaturas));
+
+    console.log(assinatura);
 });
