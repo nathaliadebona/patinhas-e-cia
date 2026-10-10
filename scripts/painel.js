@@ -14,10 +14,22 @@ if (sessionStorage.getItem('logado') !== 'sim') {
     window.location.href = 'login.html';
 }
 
+function calcularTotal(lista) {
+    return lista.reduce((acumulado, agendamento) => {
+        return acumulado + agendamento.valor;
+    }, 0);
+}
+
 function mostrarAgenda() {
     const agendamentosDoDia = buscarAgendamentosDoDia(campoDataAgenda.value);
 
     agendamentosDoDia.sort((a, b) => a.diaHora.localeCompare(b.diaHora));
+
+    const aReceber = agendamentosDoDia.filter((item) => {
+        return item.pagamento === 'pendente' && item.status !== 'cancelado';
+    });
+
+    console.log(calcularTotal(aReceber));
 
     listaAgenda.innerHTML = '';
 
