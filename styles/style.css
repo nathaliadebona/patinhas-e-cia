@@ -7,6 +7,7 @@
     --cor-texto: #7A3E22;
     --cor-texto-secundario: #A0684A;
     --cor-erro: #F8C9C4;
+    --cor-sucesso: #D5EDD0;
 
     --fonte-titulo: 'Fredoka', sans-serif;
     --fonte-corpo: 'Nunito', sans-serif;
@@ -352,9 +353,16 @@ footer li span {
     cursor: pointer;
 }
 
-#total-dia {
-    max-width: 30rem;
+#totais {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 40rem;
     margin: 1rem auto 0;
+}
+
+#total-dia,
+#total-recebido {
     padding: 1rem;
     font-size: 1.2rem;
     border-radius: 2rem;
@@ -362,8 +370,13 @@ footer li span {
     box-shadow: 0.25rem 0.25rem 0 var(--cor-texto);
 }
 
-#total-dia:empty {
+#total-dia:empty,
+#total-recebido:empty {
     display: none;
+}
+
+#total-recebido {
+    background-color: var(--cor-sucesso);
 }
 
 #lista-agenda {
@@ -414,6 +427,11 @@ footer li span {
         width: 8rem;
         transform: rotate(15deg);
         animation: balancar 3s ease-in-out infinite;
+    }
+
+    #totais {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
     }
 
     #lista-agenda {
