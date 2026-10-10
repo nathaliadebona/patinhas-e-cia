@@ -107,7 +107,8 @@ section {
 #agendamento,
 #agendamento-manual,
 #agenda,
-#planos-recorrentes {
+#planos-recorrentes,
+#assinatura {
     text-align: center;
 }
 
@@ -116,7 +117,8 @@ section {
 #agendamento h2,
 #agendamento-manual h2,
 #agenda h2,
-#planos-recorrentes {
+#planos-recorrentes h2,
+#assinatura {
     margin-bottom: 1rem;
 }
 
@@ -202,6 +204,7 @@ section {
 #botao-sair:focus-visible,
 #abrir-agendamento:focus-visible,
 #fechar-agendamento:focus-visible,
+#fechar-assinatura:focus-visible,
 .botao-agendar:focus-visible,
 .botao-assinar:focus-visible {
     outline: 0.125rem solid var(--cor-texto);
@@ -402,8 +405,9 @@ footer li span {
     font-weight: 700;
 }
 
-/* Modal do agendamento manual */
-#agendamento-manual {
+/* Modais */
+#agendamento-manual,
+#assinatura {
     width: 90%;
     max-width: 32rem;
     margin: auto;
@@ -417,17 +421,20 @@ footer li span {
     scrollbar-color: var(--cor-destaque) transparent;
 }
 
-#agendamento-manual::backdrop {
+#agendamento-manual::backdrop,
+#assinatura::backdrop {
     background-color: rgba(122, 62, 34, 0.5);
 }
 
-#agendamento-manual .formulario {
+#agendamento-manual .formulario,
+#assinatura .formulario {
     padding: 0;
     background-color: transparent;
     box-shadow: none;
 }
 
-#fechar-agendamento {
+#fechar-agendamento,
+#fechar-assinatura {
     position: absolute;
     top: 0.8rem;
     right: 0.8rem;
@@ -443,6 +450,11 @@ footer li span {
     background-color: var(--cor-destaque);
     cursor: pointer;
     transition: background-color 0.3s ease-in, color 0.3s ease-in;
+}
+
+#plano-escolhido {
+    margin-bottom: 1rem;
+    font-weight: 700;
 }
 
 /* Página de planos */
@@ -491,6 +503,7 @@ footer li span {
 .botao-assinar {
     width: 100%;
 }
+
 
 /* Desktop */
 @media (min-width: 48rem) {
