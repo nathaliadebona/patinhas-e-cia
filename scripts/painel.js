@@ -91,6 +91,8 @@ function mostrarAgenda() {
             agendamentoSalvo.pagamento = selectPagamento.value;
 
             localStorage.setItem('agendamentos', JSON.stringify(listaSalva));
+        
+            atualizarTotal();
         });
         
         const rotuloPagamento = document.createElement('label');
@@ -126,6 +128,8 @@ function mostrarAgenda() {
             agendamentoSalvo.status = selectStatus.value;
 
             localStorage.setItem('agendamentos', JSON.stringify(listaSalva));
+        
+            atualizarTotal();
         });
 
         const rotuloStatus = document.createElement('label');
