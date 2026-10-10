@@ -21,18 +21,24 @@ function calcularTotal(lista) {
     }, 0);
 }
 
-function mostrarAgenda() {
-    const agendamentosDoDia = buscarAgendamentosDoDia(campoDataAgenda.value);
+function atualizarTotal() {
+    const listaDoDia = buscarAgendamentosDoDia(campoDataAgenda.value);
 
-    agendamentosDoDia.sort((a, b) => a.diaHora.localeCompare(b.diaHora));
-
-    const aReceber = agendamentosDoDia.filter((item) => {
+    const aReceber = listaDoDia.filter((item) => {
         return item.pagamento === 'pendente' && item.status !== 'cancelado';
     });
 
     const total = calcularTotal(aReceber);
     const totalFormatado = total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
     totalDia.textContent = `A receber: ${totalFormatado}`;
+}
+
+function mostrarAgenda() {
+    const agendamentosDoDia = buscarAgendamentosDoDia(campoDataAgenda.value);
+
+    agendamentosDoDia.sort((a, b) => a.diaHora.localeCompare(b.diaHora));
+
+    atualizarTotal();
 
     listaAgenda.innerHTML = '';
 
