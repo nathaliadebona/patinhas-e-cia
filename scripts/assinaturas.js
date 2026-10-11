@@ -1,5 +1,7 @@
 const botaoSair = document.getElementById('botao-sair');
 const listaAssinaturas = document.getElementById('lista-assinaturas');
+const totalAssinantes = document.getElementById('total-assinantes');
+const totalMensal = document.getElementById('total-mensal');
 
 const statusAssinatura = [
     { valor: 'novo', texto: 'Novo' },
@@ -12,8 +14,27 @@ if (sessionStorage.getItem('logado') !== 'sim') {
     window.location.href = 'login.html';
 }
 
+function atualizarTotais() {
+    const assinaturasSalvas = JSON.parse(localStorage.getItem('assinaturas')) || [];
+
+    const ativas = assinaturasSalvas.filter((item) => {
+        return item.status === 'ativo';
+    });
+
+    const quantidade = ativas.length;
+    const palavra = quantidade === 1 ? 'assinante ativo' : 'assinantes ativos';
+
+    const receita = calcularTotal(ativas);
+    const receitaFormatada = receita.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+
+    totalAssinantes.innerHTML = `<strong>${quantidade}</strong> ${palavra}`;
+    totalMensal.innerHTML = `Receita mensal: <strong>${receitaFormatada}</strong>`;
+}
+
 function mostrarAssinaturas() {
     const assinaturasSalvas = JSON.parse(localStorage.getItem('assinaturas')) || [];
+
+    atualizarTotais();
 
     assinaturasSalvas.sort((a, b) => b.dataAssinatura.localeCompare(a.dataAssinatura));
 
