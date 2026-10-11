@@ -1,6 +1,6 @@
 # Patinhas & Cia 🐾
 
-Patinhas & Cia is a scheduling system for a fictional pet shop: a tutor-facing site where pet owners browse services and book a time slot, and a staff panel where the team manages the daily agenda, payments, and appointment status.
+Patinhas & Cia is a scheduling system for a fictional pet shop: a tutor-facing site where pet owners browse services, book a time slot, and sign up for monthly plans, and a staff panel where the team manages the daily agenda, payments, appointment status, and plan subscriptions.
 
 Designed and built as a front-end learning project, with a focus on fundamentals: plain HTML, CSS, and JavaScript (no frameworks), storing all data in the browser.
 
@@ -19,6 +19,14 @@ Designed and built as a front-end learning project, with a focus on fundamentals
 - Occupied slots hidden from the list (cancelled appointments free their slot)
 - Past dates and Sundays blocked, and past times hidden for today
 - Confirmation message after booking
+- Banner that invites visitors to see the monthly plans
+
+### Monthly plans
+- Dedicated page with one card per plan, built from a single data file
+- Each card shows the price, a short description, and what is included per month (for example, "Bath: 2 times a month")
+- Savings calculated automatically by comparing the plan price with the sum of the individual services
+- "Subscribe" button that opens a modal with a short interest form
+- Subscriptions saved with the plan price at the time of signing up, so later price changes do not affect old subscriptions
 
 ### Staff panel
 - Simulated login with a protected panel and a logout button
@@ -31,20 +39,26 @@ Designed and built as a front-end learning project, with a focus on fundamentals
 - Edit any appointment in the same modal, keeping its own time slot available while editing
 - Friendly message for days without appointments
 
+### Subscriptions (staff)
+- Separate page listing every plan subscription, newest first
+- Each card shows the person, phone, pet, plan, and the price they signed up for
+- Status can be updated (new, contacted, active, cancelled), and changes are saved
+- Totals for active subscribers and monthly revenue, updated as soon as a status changes
+
 ### Design and accessibility
 - Mobile-first, responsive layout
 - Custom palette and fonts (Fredoka and Nunito), with CSS custom properties
-- Sticker-style cards with solid shadows, and a decorative sticker on desktop
+- Sticker-style cards with solid shadows, a decorative sticker on desktop, and an illustrated banner
 - Playful animations that respect `prefers-reduced-motion`
 - Labels linked to every field, status and alert messages for screen readers, and visible keyboard focus
-- Native `<dialog>` for the booking modal (focus stays inside, Esc closes) and native `<details>` for the filters
+- Native `<dialog>` for the modals (focus stays inside, Esc closes) and native `<details>` for the filters
 - Descriptive labels on icon-only and repeated buttons (for example, "Edit appointment for Thor")
 
 ## Tech stack
 
 - HTML5, CSS3 (Flexbox, Grid, media queries, custom properties), and vanilla JavaScript
 - Native `<dialog>` and `<details>` elements
-- `localStorage` for appointments and `sessionStorage` for the demo login
+- `localStorage` for appointments and subscriptions, and `sessionStorage` for the demo login
 - [Font Awesome](https://fontawesome.com/) (icons)
 - [Google Fonts](https://fonts.google.com/) (Fredoka and Nunito)
 
@@ -57,24 +71,29 @@ The staff panel is at `login.html`. Use the demo credentials shown on the login 
 
 The login is **simulated**. There is no server, so the credentials live in the JavaScript and the panel is not truly protected. It exists to demonstrate the flow, not as real security.
 
-All data is stored in your own browser, so each visitor only sees the appointments they created themselves.
+All data is stored in your own browser, so each visitor only sees the appointments and subscriptions they created themselves.
 
 ## Project structure
 
 ```
-index.html        Tutor area
-login.html        Staff login
-painel.html       Staff panel
+index.html         Tutor area
+planos.html        Monthly plans
+login.html         Staff login
+painel.html        Staff panel (agenda)
+assinaturas.html   Staff panel (subscriptions)
 scripts/
-  servicos.js     Service list (name, price, duration, grooming types)
-  comum.js        Shared helpers (today's date, appointments by day)
-  formulario.js   Shared booking logic (time slots, grooming types, Sundays)
-  tutor.js        Tutor area: service buttons and booking submit
-  login.js        Simulated login
-  painel.js       Staff panel: agenda, totals, filters, booking and editing
+  servicos.js        Service list (name, price, duration, grooming types)
+  planos.js          Plan list (name, price, what is included)
+  comum.js           Shared helpers (today's date, appointments by day, totals)
+  formulario.js      Shared booking logic (time slots, grooming types, Sundays)
+  tutor.js           Tutor area: service buttons and booking submit
+  pagina-planos.js   Plans page: cards, savings, and subscription modal
+  login.js           Simulated login
+  painel.js          Staff panel: agenda, totals, filters, booking and editing
+  assinaturas.js     Staff panel: subscriptions, status, and totals
 styles/
-  style.css       All styles
-assets/           Stickers and images
+  style.css          All styles
+assets/              Stickers and banner image
 ```
 
 ## Running locally
@@ -87,12 +106,14 @@ assets/           Stickers and images
 
 Planned features, not yet implemented:
 
-- Recurring plans for tutors
-- Recurring clients area in the staff panel
+- Generate the recurring appointments automatically from an active subscription
+- Edit and delete subscriptions
 
 ## Screenshots
 
-_Coming soon._
+<img width="1954" height="5860" alt="nathaliadebona github io_patinhas-e-cia_" src="https://github.com/user-attachments/assets/9c542862-2529-4cb1-9b65-2040dffb3de5" />
+<img width="1954" height="1856" alt="nathaliadebona github io_patinhas-e-cia_planos html1" src="https://github.com/user-attachments/assets/14a03903-2abd-448e-a14a-568615e8e58c" />
+<img width="1954" height="1244" alt="127 0 0 1_5500_painel html" src="https://github.com/user-attachments/assets/075cd8e4-dab9-4c52-a5be-10035a155674" />
 
 ---
 
