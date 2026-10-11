@@ -1,6 +1,13 @@
 const botaoSair = document.getElementById('botao-sair');
 const listaAssinaturas = document.getElementById('lista-assinaturas');
 
+const statusAssinatura = [
+    { valor: 'novo', texto: 'Novo' },
+    { valor: 'contatado', texto: 'Contatado' },
+    { valor: 'ativo', texto: 'Ativo' },
+    { valor: 'cancelado', texto: 'Cancelado' }
+];
+
 if (sessionStorage.getItem('logado') !== 'sim') {
     window.location.href = 'login.html';
 }
@@ -40,11 +47,27 @@ function mostrarAssinaturas() {
         const valorAssinatura = document.createElement('p');
         valorAssinatura.textContent = `Valor: ${valorFormatado} por mês`;
 
+        const selectStatus = document.createElement('select');
+
+        statusAssinatura.forEach((status) => {
+            const opcao = document.createElement('option');
+            opcao.value = status.valor;
+            opcao.textContent = status.texto;
+            selectStatus.appendChild(opcao);
+        });
+
+        selectStatus.value = assinatura.status;
+
+        const rotuloStatus = document.createElement('label');
+        rotuloStatus.textContent = 'Status';
+        rotuloStatus.appendChild(selectStatus);
+
         listaAssinaturas.appendChild(cartao);
         cartao.appendChild(nome);
         cartao.appendChild(contato);
         cartao.appendChild(nomePlano);
         cartao.appendChild(valorAssinatura);
+        cartao.appendChild(rotuloStatus);
     });
 }
 
