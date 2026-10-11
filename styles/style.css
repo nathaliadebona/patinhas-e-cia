@@ -108,7 +108,7 @@ section {
 #agendamento-manual,
 #agenda,
 #planos-recorrentes,
-#assinatura {
+#assinaturas {
     text-align: center;
 }
 
@@ -118,7 +118,7 @@ section {
 #agendamento-manual h2,
 #agenda h2,
 #planos-recorrentes h2,
-#assinatura {
+#assinaturas {
     margin-bottom: 1rem;
 }
 
@@ -419,7 +419,8 @@ footer li span {
     margin-top: 1.5rem;
 }
 
-.cartao-agenda {
+.cartao-agenda,
+.cartao-assinatura {
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -430,7 +431,8 @@ footer li span {
     box-shadow: 0.25rem 0.25rem 0 var(--cor-texto);
 }
 
-.cartao-agenda label {
+.cartao-agenda label,
+.cartao-assinatura label {
     display: flex;
     flex-direction: column;
     gap: 0.3rem;
@@ -536,6 +538,13 @@ footer li span {
     width: 100%;
 }
 
+/* Página assinaturas */
+#lista-assinaturas {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
 
 /* Desktop */
 @media (min-width: 48rem) {
@@ -584,6 +593,15 @@ footer li span {
     #lista-planos {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
+    }
+
+    #lista-assinaturas {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    #lista-assinaturas > p {
+        grid-column: 1 / -1;
     }
 }
 
