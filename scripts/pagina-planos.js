@@ -8,6 +8,8 @@ const campoAssinanteNome = document.getElementById('assinante-nome');
 const campoAssinanteTelefone = document.getElementById('assinante-telefone');
 const campoAssinantePet = document.getElementById('assinante-pet');
 
+const mensagemConfirmacao = document.getElementById('mensagem-confirmacao');
+
 let planoEscolhido = null;
 
 function calcularValorAvulso(plano) {
@@ -88,6 +90,11 @@ botaoFecharAssinatura.addEventListener('click', () => {
     dialogAssinatura.close();
 });
 
+dialogAssinatura.addEventListener('close', () => {
+    formAssinatura.reset();
+    planoEscolhido = null;
+});
+
 // Envio do formulário de assinatura //
 formAssinatura.addEventListener('submit', (evento) => {
     evento.preventDefault();
@@ -112,5 +119,11 @@ formAssinatura.addEventListener('submit', (evento) => {
     listaAssinaturas.push(assinatura);
     localStorage.setItem('assinaturas', JSON.stringify(listaAssinaturas));
 
-    console.log(assinatura);
+    dialogAssinatura.close();
+
+    mensagemConfirmacao.textContent = 'Recebemos seu interesse no plano! Entraremos em contato em breve.';
+
+    setTimeout(() => {
+        mensagemConfirmacao.textContent = '';
+    }, 4000);
 });
