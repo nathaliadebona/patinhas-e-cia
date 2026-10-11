@@ -89,6 +89,8 @@ function mostrarAssinaturas() {
             assinaturaSalva.status = selectStatus.value;
 
             localStorage.setItem('assinaturas', JSON.stringify(listaSalva));
+        
+            atualizarTotais();
         });
 
         const rotuloStatus = document.createElement('label');
