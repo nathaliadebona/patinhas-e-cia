@@ -40,6 +40,13 @@ header p {
     margin-top: 0.5rem;
 }
 
+.acoes-header {
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+    margin-top: 0.8rem;
+}
+
 main {
     max-width: 60rem;
     margin: 0 auto;
@@ -245,10 +252,6 @@ section {
 
 .formulario button {
     width: 100%;
-}
-
-#botao-sair {
-    margin-top: 0.8rem;
 }
 
 #abrir-agendamento {
