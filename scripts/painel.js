@@ -27,12 +27,6 @@ if (sessionStorage.getItem('logado') !== 'sim') {
 }
 
 // Totais //
-function calcularTotal(lista) {
-    return lista.reduce((acumulado, agendamento) => {
-        return acumulado + agendamento.valor;
-    }, 0);
-}
-
 function atualizarTotal() {
     const listaDoDia = buscarAgendamentosDoDia(campoDataAgenda.value);
 

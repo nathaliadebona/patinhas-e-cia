@@ -6,6 +6,12 @@ function buscarAgendamentosDoDia(data) {
     });
 }
 
+function calcularTotal(lista) {
+    return lista.reduce((acumulado, agendamento) => {
+        return acumulado + agendamento.valor;
+    }, 0);
+}
+
 const agora = new Date();
 const ano = agora.getFullYear();
 const mes = agora.getMonth() + 1;
@@ -14,3 +20,4 @@ const dia = agora.getDate();
 const mesTexto = String(mes).padStart(2, '0');
 const diaTexto = String(dia).padStart(2, '0');
 const hoje = `${ano}-${mesTexto}-${diaTexto}`;
+
