@@ -8,6 +8,7 @@
     --cor-sucesso: #D5EDD0;
     --cor-texto: #7A3E22;
     --cor-texto-secundario: #865234;
+    --cor-texto-botao: #4A200C;
 
     --fonte-titulo: 'Fredoka', sans-serif;
     --fonte-corpo: 'Nunito', sans-serif;
@@ -160,7 +161,7 @@ section {
     display: inline-block;
     padding: 0.6rem 1rem;
     text-decoration: none;
-    color: var(--cor-texto);
+    color: var(--cor-texto-botao);
     border-radius: 2rem;
     background-color: var(--cor-destaque);
     transition: background-color 0.3s ease-in, color 0.3s ease-in;
@@ -229,7 +230,7 @@ section {
     padding: 0.6rem 1rem;
     font-family: var(--fonte-corpo);
     font-size: 1rem;
-    color: var(--cor-texto);
+    color: var(--cor-texto-botao);
     border: none;
     border-radius: 2rem;
     background-color: var(--cor-destaque);
@@ -486,7 +487,7 @@ footer li span {
     width: 2.2rem;
     height: 2.2rem;
     font-size: 1rem;
-    color: var(--cor-texto);
+    color: var(--cor-texto-botao);
     border: none;
     border-radius: 50%;
     background-color: var(--cor-destaque);
