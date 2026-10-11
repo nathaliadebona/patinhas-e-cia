@@ -58,6 +58,18 @@ function mostrarAssinaturas() {
 
         selectStatus.value = assinatura.status;
 
+        selectStatus.addEventListener('change', () => {
+            const listaSalva = JSON.parse(localStorage.getItem('assinaturas')) || [];
+
+            const assinaturaSalva = listaSalva.find((item) => {
+                return item.id === assinatura.id;
+            });
+
+            assinaturaSalva.status = selectStatus.value;
+
+            localStorage.setItem('assinaturas', JSON.stringify(listaSalva));
+        });
+
         const rotuloStatus = document.createElement('label');
         rotuloStatus.textContent = 'Status';
         rotuloStatus.appendChild(selectStatus);
