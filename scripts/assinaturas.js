@@ -28,9 +28,23 @@ function mostrarAssinaturas() {
         const contato = document.createElement('p');
         contato.textContent = `${assinatura.telefone} · ${assinatura.pet}`;
 
+        const planoEncontrado = planos.find((item) => {
+            return item.id === assinatura.plano;
+        });
+
+        const nomePlano = document.createElement('p');
+        nomePlano.textContent = `Plano: ${planoEncontrado.nome}`;
+
+        const valorFormatado = assinatura.valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+
+        const valorAssinatura = document.createElement('p');
+        valorAssinatura.textContent = `Valor: ${valorFormatado} por mês`;
+
         listaAssinaturas.appendChild(cartao);
         cartao.appendChild(nome);
         cartao.appendChild(contato);
+        cartao.appendChild(nomePlano);
+        cartao.appendChild(valorAssinatura);
     });
 }
 
