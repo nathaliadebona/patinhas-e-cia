@@ -40,12 +40,12 @@ function mostrarAssinaturas() {
         });
 
         const nomePlano = document.createElement('p');
-        nomePlano.textContent = `Plano: ${planoEncontrado.nome}`;
+        nomePlano.innerHTML = `<strong>Plano:</strong> ${planoEncontrado.nome}`;
 
         const valorFormatado = assinatura.valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
         const valorAssinatura = document.createElement('p');
-        valorAssinatura.textContent = `Valor: ${valorFormatado} por mês`;
+        valorAssinatura.innerHTML = `<strong>Valor:</strong> ${valorFormatado} por mês`;
 
         const selectStatus = document.createElement('select');
 
