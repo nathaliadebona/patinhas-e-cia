@@ -7,8 +7,8 @@ function buscarAgendamentosDoDia(data) {
 }
 
 function calcularTotal(lista) {
-    return lista.reduce((acumulado, agendamento) => {
-        return acumulado + agendamento.valor;
+    return lista.reduce((acumulado, item) => {
+        return acumulado + item.valor;
     }, 0);
 }
 
