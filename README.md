@@ -53,6 +53,17 @@ Designed and built as a front-end learning project, with a focus on fundamentals
 - Labels linked to every field, status and alert messages for screen readers, and visible keyboard focus
 - Native `<dialog>` for the modals (focus stays inside, Esc closes) and native `<details>` for the filters
 - Descriptive labels on icon-only and repeated buttons (for example, "Edit appointment for Thor")
+- Text and button colors checked for contrast (at least 4.5:1), based on Lighthouse feedback
+- A meta description on every page
+
+## Performance
+
+Audited with Lighthouse (mobile, simulated slow 4G): 94 to 98 in Performance and 100 in Accessibility, Best Practices, and SEO on the tutor page. Some of the optimizations:
+
+- Banner image preloaded with high priority, since it is the largest element on the first screen
+- Decorative sticker loaded lazily, so it is not downloaded where it is hidden
+- Space reserved for the plan cards, so the footer does not jump when they appear
+- Banner served as WebP, which is much lighter than PNG
 
 ## Tech stack
 
@@ -108,6 +119,7 @@ Planned features, not yet implemented:
 
 - Generate the recurring appointments automatically from an active subscription
 - Edit and delete subscriptions
+- Replace Font Awesome with inline SVG icons to reduce page weight
 
 ## Screenshots
 
