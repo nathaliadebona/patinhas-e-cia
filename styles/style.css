@@ -505,6 +505,7 @@ footer li span {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    min-height: 65rem;
 }
 
 .cartao-plano {
@@ -603,6 +604,7 @@ footer li span {
     #lista-planos {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
+        min-height: 0;
     }
 
     #lista-assinaturas {
