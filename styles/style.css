@@ -41,8 +41,28 @@ header p {
     margin-top: 0.5rem;
 }
 
+header nav {
+    display: flex;
+    gap: 1.2rem;
+}
+
+.aba {
+    padding-bottom: 0.3rem;
+    line-height: 1;
+    font-weight: 700;
+    color: var(--cor-texto);
+    text-decoration: none;
+    border-bottom: 0.1875rem solid transparent;
+    transition: border-color 0.3s ease-in;
+}
+
+.aba[aria-current="page"] {
+    border-bottom-color: var(--cor-destaque);
+}
+
 .acoes-header {
     display: flex;
+    align-items: center;
     justify-content: center;
     gap: 0.8rem;
     margin-top: 0.8rem;
@@ -411,7 +431,8 @@ footer nav a {
 }
 
 .link-voltar:focus-visible,
-footer nav a:focus-visible {
+footer nav a:focus-visible,
+.aba:focus-visible {
     outline: 0.125rem solid var(--cor-texto);
     outline-offset: 0.1rem;
 }
@@ -706,6 +727,10 @@ footer nav a:focus-visible {
     footer nav a:hover {
         text-decoration-thickness: 0.15rem;
         text-underline-offset: 0.3rem;
+    }
+
+    .aba:not([aria-current="page"]):hover {
+        border-bottom-color: var(--cor-texto);
     }
 }
 
