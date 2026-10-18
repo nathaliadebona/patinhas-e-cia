@@ -288,6 +288,10 @@ section {
     display: none;
 }
 
+.campo label {
+    padding-left: 0.6rem;
+}
+
 input,
 select,
 textarea {
@@ -607,16 +611,28 @@ footer nav a:focus-visible {
         justify-content: center;
     }
 
+    #form-agendamento {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 1.5rem;
+        max-width: 44rem;
+    }
+
+    #form-agendamento .campo-completo,
+    #form-agendamento button {
+        grid-column: 1 / -1;
+    }
+
     #agendamento {
         position: relative;
     }
 
     .sticker-cachorro-gato {
         position: absolute;
-        top: 5rem;
-        right: 5rem;
+        top: 0rem;
+        right: 6rem;
         display: block;
-        width: 8rem;
+        width: 6rem;
         transform: rotate(15deg);
         animation: balancar 3s ease-in-out infinite;
     }
