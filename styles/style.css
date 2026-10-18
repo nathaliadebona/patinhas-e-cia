@@ -597,6 +597,10 @@ footer nav a:focus-visible {
 
 /* Desktop */
 @media (min-width: 48rem) {
+    html {
+        font-size: 112.5%;
+    }
+
     #servicos-cards {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
