@@ -331,16 +331,30 @@ textarea {
 
 /* Rodapé */
 footer {
+    position: relative;
     padding: 2rem;
-    text-align: center;
+    text-align: left;
     border-radius: 1rem 1rem 0 0;
     background-color: var(--cor-cards);
+    isolation: isolate;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    background-image: url(../assets/biscoitos-sticker.png);
+    background-size: 4rem;
+    opacity: 0.12;
+    pointer-events: none;
 }
 
 footer strong {
     display: block;
-    margin-bottom: 0.5rem;
-    font-size: 1.1rem;
+    margin-bottom: 0.6rem;
+    font-size: 1.3rem;
 }
 
 footer li {
@@ -350,6 +364,26 @@ footer li {
 
 footer li span {
     font-weight: 700;
+}
+
+footer nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 0.125rem dashed var(--cor-destaque);
+}
+
+footer nav h2 {
+    font-size: 1.1rem;
+}
+
+footer nav a {
+    font-weight: 700;
+    color: var(--cor-texto);
+    text-decoration: underline;
 }
 
 /* Página de login */
@@ -372,7 +406,8 @@ footer li span {
     text-decoration: underline;
 }
 
-.link-voltar:focus-visible {
+.link-voltar:focus-visible,
+footer nav a:focus-visible {
     outline: 0.125rem solid var(--cor-texto);
     outline-offset: 0.1rem;
 }
@@ -615,6 +650,22 @@ footer li span {
     #lista-assinaturas > p {
         grid-column: 1 / -1;
     }
+
+    footer {
+        display: grid;
+        grid-template-columns: auto auto;
+        align-items: center;
+        justify-content: start;
+        column-gap: 4rem;
+    }
+
+    footer nav {
+        margin-top: 0;
+        padding: 0;
+        padding-left: 1.5rem;
+        border-top: none;
+        border-left: 0.125rem dashed var(--cor-destaque);
+    }
 }
 
 /* Hover só em aparelhos com mouse */
@@ -631,7 +682,8 @@ footer li span {
         background-color: var(--cor-texto);
     }
 
-    .link-voltar:hover {
+    .link-voltar:hover,
+    footer nav a:hover {
         text-decoration-thickness: 0.15rem;
         text-underline-offset: 0.3rem;
     }
