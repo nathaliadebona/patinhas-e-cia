@@ -60,9 +60,22 @@ header nav {
     border-bottom-color: var(--cor-destaque);
 }
 
+#botao-sair {
+    padding: 0.1rem;
+    font-family: var(--fonte-corpo);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--cor-texto);
+    border: none;
+    border-bottom: 0.1875rem solid transparent;
+    background-color: transparent;
+    cursor: pointer;
+    transition: border-color 0.3s ease-in;
+}
+
 .acoes-header {
     display: flex;
-    align-items: center;
+    align-items: baseline;
     justify-content: center;
     gap: 0.8rem;
     margin-top: 0.8rem;
@@ -242,7 +255,6 @@ section {
 /* Botões */
 #servicos-cards button,
 .formulario button,
-#botao-sair,
 #abrir-agendamento,
 .botao-editar,
 .botao-assinar {
@@ -713,7 +725,6 @@ footer nav a:focus-visible,
 @media (hover: hover) {
     #servicos-cards button:hover,
     .formulario button:hover,
-    #botao-sair:hover,
     #abrir-agendamento:hover,
     #fechar-agendamento:hover,
     .botao-editar:hover,
@@ -730,6 +741,10 @@ footer nav a:focus-visible,
     }
 
     .aba:not([aria-current="page"]):hover {
+        border-bottom-color: var(--cor-texto);
+    }
+
+    #botao-sair:hover {
         border-bottom-color: var(--cor-texto);
     }
 }
