@@ -510,6 +510,7 @@ footer nav a:focus-visible,
     border-radius: 1rem;
     background-color: var(--cor-cards);
     box-shadow: 0.25rem 0.25rem 0 var(--cor-texto);
+    transition: background-color 0.3s ease-in;
 }
 
 .cartao-agenda label,
@@ -518,6 +519,10 @@ footer nav a:focus-visible,
     flex-direction: column;
     gap: 0.3rem;
     font-weight: 700;
+}
+
+.cartao-agenda.pagamento-pago {
+    background-color: var(--cor-sucesso);
 }
 
 /* Modais */

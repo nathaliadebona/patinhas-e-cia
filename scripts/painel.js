@@ -116,6 +116,7 @@ function mostrarAgenda() {
         });
 
         const cartao = document.createElement('article');
+        cartao.classList.toggle('pagamento-pago', agendamento.pagamento === 'pago');
         cartao.classList.add('cartao-agenda');
 
         const petNome = document.createElement('h3');
@@ -157,6 +158,8 @@ function mostrarAgenda() {
 
             localStorage.setItem('agendamentos', JSON.stringify(listaSalva));
 
+            cartao.classList.toggle('pagamento-pago', selectPagamento.value === 'pago');
+            
             atualizarTotal();
         });
 
